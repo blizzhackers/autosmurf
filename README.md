@@ -19,20 +19,20 @@
 	- ...\d2bs\kolbot\libs\config\
 	- ...\kolbot\pickit\autosmurf\
 - The alternative for Config.js is to add, at the end of the default file, the variables needed for autosmurf config, so at the bottom it should look:
-```javascript
-	},
-	AutoSmurf: {
-		TeamSize: 1,
-		TeleportingSorc: [],
-		BoBarb: "",
-		NonSorcChar: []
-	}
-};
-```	
+	```javascript
+		},
+		AutoSmurf: {
+			TeamSize: 1,
+			TeleportingSorc: [],
+			BoBarb: "",
+			NonSorcChar: []
+		}
+	};
+	```	
 
 ### Starter scripts
 
-1. Use the basic configuration for local leader and followers. For a fast config you don’t need touch the leader starter file (D2BotLead.dbj), or maybe only to increase the default value of 	**CrashDelay: 5,** higher than 60 seconds.
+1. Use the basic configuration for local leader and followers. For a fast config you don’t need touch the leader starter file (D2BotLead.dbj), or maybe only to increase the default value of 	**CrashDelay: 5,** to a higher value than 60 seconds.
 
 2. In the follower's starter script (D2BotFollow.dbj) you should modify the lines 31-33:
 	```javascript
@@ -40,8 +40,9 @@
 		"As1": ["all"]
 	};
 	```
-	As1 = the sorceress leader profile, which will open the game, then will open the TPs in-game
-	all = the followers which will join the game and will follow in-game the leaders's tps
+	**As1** = the sorceress leader profile, which will open the game, then will open the TPs in-game
+
+	**all** = the followers which will join the game and will follow in-game the leaders's tps
 
 2. optionally you can set in the 48th line of D2BotFollow.js the delays for joining the game.
 
@@ -51,9 +52,9 @@
 
 ### Configuration
 
-1. when your bot team Lvl get the baalLvlnm, the AutoSmurf will enter into Hell difficulty and you should use XXXX2 char-config file so that you must write your char name in XXXX2 same as XXXX1.
+1. when your bot team get the baalLvlnm, the AutoSmurf will enter on Hell difficulty and you should use XXXX2 char-config files, so that you should copy those files using your char names for XXXX2, the same like in XXXX1 case.
 
-2. in XXXX2 files, Config.AutoEquip = false is default, so your bot should be equiped manually by yourself further more. 
+2. in XXXX2 files, Config.AutoEquip = false is by default, so  further more your bot should be equiped manually by yourself. 
 
 ### Leader
 
@@ -69,12 +70,13 @@
 			Config.AutoSmurf.AllTeamProfiles = ["As1","As2","As3","As4"]; // the whole team PROFILE names
 	```
 
-2. complete the line 129 with the names of the profiles, according to line 130 (Config.QuitListMode = 1):
+2. complete the leeching section - line 139 with the **profile names**, according to line 140 (Config.QuitListMode = 1):
 	```javascript
-		Config.QuitList = ["As2", "As3", "As4"]; // team char name except from leader
+		Config.QuitList = ["As2", "As3", "As4"]; // List of character names to quit with.
+		Config.QuitListMode = 1; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
 	```
 
-3. complete the line 582 with the desired autobuild template. For sorceress you can choose "Blizzard", "ChainL", "Meteor" 
+3. complete the line 663 with the desired autobuild template. For sorceress you can choose "Blizzard", "ChainL", "Meteor" 
 	```
 		Config.AutoBuild.Template = "Blizzard";
 	```
@@ -82,7 +84,7 @@
 ### Followers
 
 1. You should copy the follower configuration files:
-	- the required **BcD** follower is BO barbarian, so you should copy /config/Barbarian.XXXX1.js as **Barbarian.BcD.js**.
+	- the 2nd required **BcD** follower is BO barbarian, so you should copy /config/Barbarian.XXXX1.js as **Barbarian.BcD.js**.
 	- the 3rd follower can be a **CdE** paladin, so you should copy /config/Paladin.XXXX1.js as **Paladin.CdE.js**.
 	- the 4th **DeF** follower could be a sorceress, so you should copy /config/Sorceress.XXXX1(follow).js as **Sorceress.DeF.js**.
 
@@ -96,14 +98,17 @@
 			Config.AutoSmurf.AllTeamProfiles = ["As1","As2","As3","As4"]; // the whole team PROFILE names
 	```
 
-2. complete the lines 138-140 with the sorceress leader char name and its running profile:
+2. complete the leeching section - lines 138-140 with the sorceress leader char name and its running profile:
 	```javascript
 		Config.Leader = "AbC"; // Leader's ingame character name. Leave blank to try auto-detection (works in AutoBaal, Wakka, MFHelper)
-		Config.QuitList = ["As1"]; // leader char name.
+		Config.QuitList = ["As1"]; // List of character names to quit with.
 		Config.QuitListMode = 1; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
 	```
 
-3. Around line 578-580 line you must specify the build according to your existing build template. For barbarian you should set "BattleOrders", paladin should have the "BHammer", and the other sorceress can have "ChainL".
+3. Around line 654-664th line you must specify the build of the bot, according to your existing build template:
+	- 2nd follower barbarian - "BattleOrders"
+	- 3rd follower paladin - "BHammer"
+	- 4th follower sorceress - "ChainL".
 
 ### Other settings
 
