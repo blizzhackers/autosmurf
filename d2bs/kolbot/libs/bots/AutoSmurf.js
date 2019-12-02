@@ -99,9 +99,9 @@ function AutoSmurf() {
 
 			print("I am the BOer");
 		} else {
-			for (var i = 0 ; i < Config.AutoSmurf.NonSorcChar.length ; i += 1) {
-				if (Config.AutoSmurf.NonSorcChar[i] === me.name) {
-					nonSorcChar = true;
+			for (var i = 0 ; i < Config.AutoSmurf.OtherChars.length ; i += 1) {
+				if (Config.AutoSmurf.Other.Chars[i] === me.name) {
+					otherChar = true;
 
 					print("I am a Follower");
 					
@@ -109,7 +109,7 @@ function AutoSmurf() {
 				}
 			}
 
-			if (!nonSorcChar) {
+			if (!otherChar) {
 				print("I am not assigned a role in my Config file. Please rectify this omission and restart."); // SiC-666 TODO: Make this red text or throw an error instead.
 
 				while(true) {

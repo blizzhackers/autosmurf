@@ -529,6 +529,6 @@ var Config = {
 		TeamSize: 1,
 		TeleportingSorc: [],
 		BoBarb: "",
-		NonSorcChar: []
+		OtherChars: []
 	}
 };

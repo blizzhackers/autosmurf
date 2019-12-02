@@ -25,7 +25,7 @@
 			TeamSize: 1,
 			TeleportingSorc: [],
 			BoBarb: "",
-			NonSorcChar: []
+			OtherChars: []
 		}
 	};
 	```	
@@ -66,7 +66,7 @@
 			Config.AutoSmurf.TeamSize = 4;
 			Config.AutoSmurf.TeleportingSorc = "AbC"; // your leader sorceress charname.
 			Config.AutoSmurf.BoBarb = "BcD"; // boBarb charname
-			Config.AutoSmurf.NonSorcChar = ["CdE", "DeF"]; // all team charnames, excluding the leader and boBarb
+			Config.AutoSmurf.OtherChars = ["CdE", "DeF"]; // all team charnames, excluding the leader and boBarb
 			Config.AutoSmurf.AllTeamProfiles = ["As1","As2","As3","As4"]; // the whole team PROFILE names
 	```
 
@@ -94,7 +94,7 @@
 			Config.AutoSmurf.TeamSize = 4;
 			Config.AutoSmurf.TeleportingSorc = "AbC"; // your leader sorceress charname.
 			Config.AutoSmurf.BoBarb = "BcD"; // boBarb charname
-			Config.AutoSmurf.NonSorcChar = ["CdE", "DeF"]; // all team charnames, excluding the leader and boBarb
+			Config.AutoSmurf.OtherChars = ["CdE", "DeF"]; // all team charnames, excluding the leader and boBarb
 			Config.AutoSmurf.AllTeamProfiles = ["As1","As2","As3","As4"]; // the whole team PROFILE names
 	```
 
