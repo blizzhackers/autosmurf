@@ -1,13 +1,9 @@
 /**
-*	@filename	AutoSmurf.js
-*	@author		JeanMax/SiC-666/Dark-f
-*	@desc		Questing, Leveling & Smurfing
-*	@version	25.11.2030
-*/
-/*
-	Special thanks to : Alogwe, Imba, Kolton, Larryw, Noah, QQValpen, Sam, YGM
-	For a specific thank, search for your <3
-	Let me know if I forgot some!
+*	@filename		AutoSmurf.js
+*	@author			JeanMax / SiC-666 / Dark-f
+*	@contributors 	Alogwe, Imba, Kolton, Larryw, Noah, QQValpen, Sam, YGM
+*	@desc			Questing, Leveling & Smurfing
+*	@version		2019
 */
 
 function AutoSmurf() {

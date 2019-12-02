@@ -46,7 +46,7 @@
 
 3. optionally you can set in the 48th line of D2BotFollow.js the delays for joining the game.
 
-4. maybe it will be better if you will also set [delays for quitting the games](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#followers-exit-delays) - the included ...\kolbot\tools\ToolsThread.js have that add-on in line 429.
+4. maybe it will be better if you will also set [delays for quitting the games](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#followers-exit-delays) - the included ...\kolbot\tools\ToolsThread.js have that add-on in [line 429](https://github.com/blizzhackers/autosmurf/blob/master/d2bs/kolbot/tools/ToolsThread.js#L429).
 
 5. if you wanna randomize the starter scripts timers - the included D2BotFollow.dbj and D2BotLead.dbj have the randomized timers. In D2BotFollow.dbj, you should complete the changes mentioned at steps 2 and 3.
 
