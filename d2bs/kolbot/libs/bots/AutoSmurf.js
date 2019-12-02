@@ -29,9 +29,9 @@ function AutoSmurf() {
 		diaLvlhell = 79,
 		mfLvlhell = 86,
 
-// Config.AutoSmurf.AllTeamProfiles;
+	// Config.AutoSmurf.AllTeamProfiles;
 
-//---------------------------------------be-sure-of-what-you-edit-under-this-line--------------------------------------------//
+	//-------------------be-sure-of-what-you-edit-under-this-line--------------------------------------------//
 		placeToBe, teamBrain, nickTP,
 		nonSorcChar = false, // SiC-666 TODO: Change this to follower.
 		teleportingSorc = false, // SiC-666 TODO: Change this to Leader (should be able to teleport).
@@ -79,7 +79,7 @@ function AutoSmurf() {
 		ok = 1,
 		mercid = [];
 
-	Messaging.sendToList = function(list, message, mode=55) {
+	Messaging.sendToList = function (list, message, mode=55) {
 		return list.forEach((profileName) => {
 			if (profileName.toLowerCase() != me.profile.toLowerCase()) {
 				sendCopyData(null, profileName, mode, JSON.stringify({ nick: me.profile, msg: message }));
@@ -87,13 +87,13 @@ function AutoSmurf() {
 		});
 	};
 
-//TEAMS
+	//TEAMS
 	this.checkRole = function () { // Checks Config settings to determine role.
 		if (Config.AutoSmurf.TeleportingSorc === me.name) {
 			teleportingSorc = true;
 
 			print("I am the Leader");
-			
+
 		} else if (Config.AutoSmurf.BoBarb === me.name) {
 			boBarb = true;
 
@@ -104,7 +104,7 @@ function AutoSmurf() {
 					otherChar = true;
 
 					print("I am a Follower");
-					
+
 					break;
 				}
 			}
@@ -124,7 +124,7 @@ function AutoSmurf() {
 			questStuff = [91, 92, 173, 174, 521, 524, 525, 553, 554, 555]; // SiC-666 TODO: Check to make sure this includes all quest items that need to be moved to Stash. (Don't need Horadric Cube in this list?)
 
 		print("starting");
-		
+
 		Town.doChores();
 
 		// Check and use quest items that might be left over from the previous game
@@ -184,13 +184,13 @@ function AutoSmurf() {
 		whereIwas = me.area;
 
 		this.removeUnwearableItems();
-/*
+		/*
 		getScript("tools/Party.js").resume();
 
 		while(!this.partyReady()) { // Wait for everyone to join party.
 			delay(1000);
 		}
-*/
+		*/
 
 		iAmReady = true; // Prevents premature teamIsReady announcment.
 
@@ -200,7 +200,7 @@ function AutoSmurf() {
 
 		Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "ready");
 
-// Here is modified by Dark-f 2018-2-21
+		// Dark-f ->
 		if ( iAmReady && Config.AutoSmurf.TeamSize === 1 ) {
 			teamIsReady = true;
 
@@ -208,7 +208,7 @@ function AutoSmurf() {
 
 			Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "team is ready");
 		}
-// 2018-2-21
+		// <- Dark-f
 
 		while (!teamIsReady) {
 			delay(500);
@@ -257,7 +257,7 @@ function AutoSmurf() {
 				Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "need cube");
 			}
 		}
-//---------------------Assembling myWaypoints & Saying In Game---------------------
+	//-----------------Assembling myWaypoints & Saying In Game--------------------
 		var myWaypointsString = "Have: "; // Does not need to be a global variable.
 
 		for (var i = 1 ; i < (me.gametype ? 39 : 30) ; i += 1) { // In Expansion, there are 39 waypoints in total (34 that need to be acquired). In Classic, there are 30 waypoints in total (26 that need to be acquired).
@@ -268,14 +268,16 @@ function AutoSmurf() {
 			}
 		}
 
-//		print("myWaypoints length: " + myWaypoints.length); // Should be 34 in Expansion and 26 in Classic.
+	//	print("myWaypoints length: " + myWaypoints.length); // Should be 34 in Expansion and 26 in Classic.
 
 		for (var i = 0 ; i < myWaypoints.length ; i += 1) {
 			myWaypointsString += myWaypoints[i];
 		}
 
 		Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, myWaypointsString); // Announce my Waypoint possession values.
-//---------------------End Announcing myWaypoints---------------------
+
+	//---------------------End Announcing myWaypoints---------------------
+
 		var j = 0;
 
 		while (teamWaypoints.length !== Config.AutoSmurf.TeamSize - 1) { // Wait for everyone's Waypoint data to be shared and recorded (excluding my own). This will ensure all verbal communications have been processed before proceeding.
@@ -297,7 +299,7 @@ function AutoSmurf() {
 
 		Town.doChores();
 
-//---------------------Assembling waypointsToReceive & waypointsToShare---------------------
+	//---------------------Assembling waypointsToReceive & waypointsToShare---------------------
 		for (var i = 0 ; i < myWaypoints.length ; i += 1) { 		// Loop thru the myWaypoints list.
 			if (startSharing &&										// Team Members need to be at least Level 8, otherwise they might not have a Town Portal Tome.
 					i < 8 || 										// Cold Plains thru Catacombs Level 2 have no additional requirements.
@@ -327,7 +329,7 @@ function AutoSmurf() {
 				}
 			}
 		}
-//---------------------Process Give/Receive Lists---------------------
+	//---------------------Process Give/Receive Lists---------------------
 		print("Start sharing Waypoints.");
 
 		for (i in waypointsToShare) {
@@ -428,7 +430,7 @@ function AutoSmurf() {
 		}
 
 		print("Done receiving Waypoints.");
-//---------------------End Waypoint Sharing---------------------
+	//---------------------End Waypoint Sharing---------------------
 		if(boing ===1 && !boBarb){ //being bo
 			this.beBo();
 		}
@@ -760,7 +762,7 @@ function AutoSmurf() {
 		}
 		return false;
 	};
-	
+
 	this.teamInGame = function (stayInGame) { // Counts all the players in game. If the number of players is below TeamSize either return false or quit game depending on input.
 		var i, player,
 			count = 0;
@@ -819,13 +821,13 @@ function AutoSmurf() {
 	this.partyAct = function () { // Cycles thru getParty() and returns the lowest Act (i.e., 1-5) the partied characters are in. Quits if noone is partied. Returns false is someone isn't in a Town.
 		var i, player, myPartyID, area,
 			lowestAct = 5;
-			
-		// Dark-f
+
+		// Dark-f ->
 		if(Config.AutoSmurf.TeamSize === 1) {
 			lowestAct = [-1, 1, 40, 75, 103, 109].indexOf(me.area);
 			return lowestAct;
 		}
-		// Dark-f
+		// <- Dark-f
 
 		for (i = 0 ; i < 30 ; i += 1) { // Try 30 times because getParty(); can fail once in a while.
 			player = getParty();
@@ -1242,7 +1244,7 @@ function AutoSmurf() {
 		return true;
 	};
 
-	this.Bo = function () { //Dark-f adding
+	this.Bo = function () { //Dark-f ->
 		this.closeLeader();
 		if(boBarb) {
 			if(me.getSkill(138))
@@ -1258,7 +1260,7 @@ function AutoSmurf() {
 		return true;
 	};
 
-//PATHING
+	//PATHING
 	this.clearToExit = function (currentarea, targetarea, cleartype) { // SiC-666 TODO: add moving to exit without clearing after XX minutes.
 		print("Start clearToExit");
 
@@ -1608,7 +1610,7 @@ function AutoSmurf() {
 
 		return true;
 	};
-	
+
 	this.changeAct = function (act) {
 		print("change Act " + act);
 
@@ -1691,7 +1693,7 @@ function AutoSmurf() {
 				}
 				Town.move("tyrael");
 				npc = getUnit(1, "tyrael");
-				
+
 				if (!npc || !npc.openMenu()) {
 					return false;
 				}
@@ -1736,7 +1738,7 @@ function AutoSmurf() {
 		delay(1000);
 		}
 		return true;
-	}; // Dark-f
+	}; // <- Dark-f
 
 	this.clickWP = function () { // Move to nearest wp and click it.
 		var i, j, wp, presetUnit,
@@ -1813,7 +1815,7 @@ function AutoSmurf() {
 									delay(1000);
 									me.cancel(1);
 								}
-								Packet.dropItem(item);  // Why not sell ? Where the Packet.dropItem ? Dark-f 
+								Packet.dropItem(item);  // Why not sell ? Where the Packet.dropItem ? Dark-f
 								item.drop(); //Dark-f: from cubing.js
 								delay(me.ping * 2 + 100);
 							}
@@ -1826,7 +1828,7 @@ function AutoSmurf() {
 								delay(1000);
 								me.cancel(1);
 							}
-							Packet.dropItem(item);  // Why not sell ? Where the Packet.dropItem ? Dark-f 
+							Packet.dropItem(item);  // Why not sell ? Where the Packet.dropItem ? Dark-f
 							item.drop(); //Dark-f: from cubing.js
 							delay(me.ping * 2 + 100);
 						}
@@ -2327,13 +2329,13 @@ function AutoSmurf() {
 						Pather.useWaypoint(1);
 					}
 					this.clearToExit(1, 2, false); // Move from Rogue Encampment to Blood Moor
-					
+
 					this.clearToExit(2, 8, false);
-					
+
 					Pather.makePortal();
-					
+
 					Pather.teleport = false; // not teleporting in Den
-					
+
 					delay(3000);
 				} else {
 					Town.goToTown();
@@ -2473,7 +2475,7 @@ function AutoSmurf() {
 		print("cain");
 		Town.doChores();
 		this.teamInGame();
-		if (!me.getQuest(4, 1) ) { // not rescues Cain
+		if (!me.getQuest(4, 1) ) { // Cain isn't rescued yet
 			if(me.diff === 0) {
 				this.travel(0);
 			} else {
@@ -2509,9 +2511,9 @@ function AutoSmurf() {
 					Precast.doPrecast(true);
 					this.Bo();
 					Pather.teleport = false;
-					Pather.moveToPreset(me.area, 1, 738, 0, 0, true, true); //move to tree				
+					Pather.moveToPreset(me.area, 1, 738, 0, 0, true, true); //move to tree
 					Attack.clear(40); // treehead
-					
+
 					if (teleportingSorc) {
 						Pather.makePortal();
 						delay(5000);
@@ -2522,7 +2524,7 @@ function AutoSmurf() {
 						if(!Pather.usePortal(null, null)){
 							Town.goToTown();
 						}
-					}	
+					}
 				/*	scroll1 = me.getItem(524);
 					if (scroll1){
 						if ( scroll1.location !== 7 && Storage.Stash.CanFit(scroll1)) {
@@ -2562,7 +2564,7 @@ function AutoSmurf() {
 			this.waitForPartyMembers();
 
 			Precast.doPrecast(true);
-			
+
 			this.Bo();
 			Pather.moveToPreset(me.area, 1, 737, 0, 0, true, true);
 			try{
@@ -2585,9 +2587,9 @@ function AutoSmurf() {
 					Misc.openChest(stoneE);
 				}
 			}
-			if ( me.diff > 0 ) { 
+			if ( me.diff > 0 ) {
 				// Dark-f: now only leader finish the next job when Nightmare & Hell
-				if (teleportingSorc) { 
+				if (teleportingSorc) {
 					Pather.teleport = true;
 					for (i = 0; i < 5; i += 1) {
 						if (Pather.usePortal(38)) {
@@ -2610,7 +2612,7 @@ function AutoSmurf() {
 						Town.goToTown();
 					}
 					delay(3000);
-				} else { // Dark-f: other teams goto town.
+				} else { // Dark-f: other team mates goto town.
 					Town.goToTown();
 				}
 			} else {
@@ -2694,8 +2696,8 @@ function AutoSmurf() {
 
 		return true;
 	};
-	
-	// add for Lv up when the partyLevel is less than the tristLvl
+
+	// add for Lvl up when the partyLevel is less than the tristLvl
 	this.tristAfter = function () {
 
 		print("tristAfter");
@@ -2774,7 +2776,7 @@ function AutoSmurf() {
 
 					this.clearToExit(36, 37, false);
 
-					//Pather.moveTo(22568, 9582, 3, false); //Dark-f: Follower kill other monsters when the leader kills Andy 
+					//Pather.moveTo(22568, 9582, 3, false); //Dark-f: Follower kill other monsters when the leader kills Andy
 					Pather.moveTo(22549, 9520, 3, false); //Dark-f: this is from running Andy
 					Pather.makePortal();
 				}
@@ -2975,7 +2977,7 @@ function AutoSmurf() {
 		}
 
 		this.teamInGame();
-		
+
 		if(teleportingSorc)
 			this.getQuestItem(521, 149);
 
@@ -3031,7 +3033,7 @@ function AutoSmurf() {
 		Pather.useWaypoint(43, true);
 
 		Precast.doPrecast(true);
-// Dark-f
+		// Dark-f
 		if(me.classid === 1 ) {
 			Pather.teleport = true;
 
@@ -3195,7 +3197,7 @@ function AutoSmurf() {
 		print("cleaning tombs");
 		Town.doChores();
 		Pather.teleport = false;
-		
+
 		if(me.act !== 2) {
 			Town.goToTown(2);
 		}
@@ -3267,7 +3269,7 @@ function AutoSmurf() {
 				this.waitForPartyMembers();
 				this.Bo();
 				Attack.clearLevel(0);
-				
+
 				chest = getPresetUnit(me.area, 2, 397);
 
 				for (j = 0 ; j < 5 ; j += 1) {
@@ -3340,7 +3342,7 @@ function AutoSmurf() {
 	this.radament = function () {
 		var i, radament, book, atma,
 			pathX = [5106, 5205, 5205, 5214, 5222],
-            pathY = [5125, 5125, 5152, 5153, 5181];
+			pathY = [5125, 5125, 5152, 5153, 5181];
 
 		print("radament");
 		Town.doChores();
@@ -3738,7 +3740,7 @@ function AutoSmurf() {
 		return true;
 	};
 
-	
+
 	this.lamEsen = function () { // Teleporting Sorc walks over to Alkor and completes the quest for everyone via exploit.
 		var i, alkor, target;
 
@@ -3819,7 +3821,7 @@ function AutoSmurf() {
 			Town.goToTown();
 		}
 
-		if(me.charlvl >=18 && me.classid ===1 ) {//if (me.charlvl >= 18) { // Dark-f 2018-2-25
+		if(me.charlvl >=18 && me.classid ===1 ) { // Dark-f add only sorceress
 			Pather.teleport = true;
 		} else {
 			Pather.teleport = false;
@@ -3873,7 +3875,7 @@ function AutoSmurf() {
 			Town.goToTown();
 		}
 
-		if(me.charlvl >=18 && me.classid ===1 ) {//if (me.charlvl >= 18) { // Dark-f 2018-2-25
+		if(me.charlvl >=18 && me.classid ===1 ) { // Dark-f add only sorceress
 			Pather.teleport = true;
 		} else {
 			Pather.teleport = false;
@@ -3941,7 +3943,7 @@ function AutoSmurf() {
 			Town.goToTown();
 		}
 
-		if(me.charlvl >=18 && me.classid ===1 ) {//if (me.charlvl >= 18) { // Dark-f 2018-2-25
+		if(me.charlvl >=18 && me.classid ===1 ) { // Dark-f add only sorceress
 			Pather.teleport = true;
 		} else {
 			Pather.teleport = false;
@@ -3950,7 +3952,7 @@ function AutoSmurf() {
 		Pather.useWaypoint(78, true);
 
 		Precast.doPrecast(true);
-		
+
 		if (Pather.teleport === true) {
 
 			this.clearToExit(78, 88, false);
@@ -4120,12 +4122,12 @@ function AutoSmurf() {
 			this.getQuestItem(546);
 		if (me.findItem(546) || me.findItem(547) || me.getQuest(20, 1)) { // Have A Jade Figurine or The Golden Bird or need to Return to Alkor for Reward (possible if someone's Pickit then Town processes the Quest). Tell the Teleporting Sorc so she gets us to process it.
 			Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "team figurine");
-			
+
 			teamFigurine = true;
 		}
 
 		Town.goToTown();
-		
+
 		if(teleportingSorc)
 			Pickit.pickItems();
 
@@ -4518,7 +4520,7 @@ function AutoSmurf() {
 					delay(3000);
 					Pather.moveTo(7798, 5206); //(7798, 5186);
 				} else {
-					Pather.moveTo(7798, 5186, 3, true); 
+					Pather.moveTo(7798, 5186, 3, true);
 				}
 			}
 
@@ -4716,7 +4718,7 @@ function AutoSmurf() {
 			Pather.teleport = false;
 		}
 		var clearType;
-		
+
 		if (teleportingSorc) {
 			Pather.useWaypoint(107);
 
@@ -4904,7 +4906,7 @@ function AutoSmurf() {
 			Attack.kill(getLocaleString(22435)); // Shenk the Overseer
 		}catch(e){
 			print(e);
-		}	
+		}
 
 		return true;
 	};
@@ -4937,7 +4939,7 @@ function AutoSmurf() {
 			for ( k = 0  ; k < coords.length ; k += 1) {
 				print("going to barbspot "+(k+1)+"/"+barbSpots.length);
 				Pather.moveToUnit(coords[k], 2, 0);
-				door = getUnit(1, 434); 
+				door = getUnit(1, 434);
 				if (door) {
 					Pather.moveToUnit(door, 1, 0);
 					for (i = 0; i < 20 && door.hp; i += 1) {
@@ -4988,7 +4990,7 @@ function AutoSmurf() {
 
 				Precast.doPrecast(true);
 
-				Pather.useWaypoint(113, false); 
+				Pather.useWaypoint(113, false);
 
 				var clearType;
 
@@ -5033,7 +5035,7 @@ function AutoSmurf() {
 			//this.teamInGame();
 			//unit = getPresetUnit(me.area, 2, 460);
 			//Pather.moveToUnit(unit, true);
-			Attack.clear(50); 
+			Attack.clear(50);
 			delay(me.ping+850);
 
 			anya = getUnit(2, 558);
@@ -5063,10 +5065,10 @@ function AutoSmurf() {
 					}
 				} else {
 					delay(10000);
-					Attack.clear(30); 
+					Attack.clear(30);
 					while(!Pather.usePortal(null, null)){ // Wait for TeleportingSorc making portal
 						delay(1000);
-						Attack.clear(30); 
+						Attack.clear(30);
 					}
 				}
 				if ( me.getItem(644)) {
@@ -5074,7 +5076,7 @@ function AutoSmurf() {
 					while(!Pather.usePortal(114, null)){
 						delay(1000);
 					}
-					
+
 					for (i = 0; i < 3; i += 1) {
 						if (getDistance(me, anya) > 3) {
 							Pather.moveToUnit(anya);
@@ -5198,7 +5200,7 @@ function AutoSmurf() {
 		while(true){
 			Attack.clear(60);
 			delay(3000);
-			me.cancel();			
+			me.cancel();
 			sendPacket(1, 0x40); //fresh Quest state.
 			if(me.getQuest(39,0))
 				break;
@@ -5490,17 +5492,17 @@ function AutoSmurf() {
 				tick = getTickCount();
 
 				Precast.doPrecast(true);
-				
+
 				break;
 			case 2:
 				Attack.clear(40);
-				
+
 				tick = getTickCount();
 
 				break;
 			case 3:
 				Attack.clear(40);
-				
+
 				this.checkHydra();
 
 				tick = getTickCount();
@@ -5552,7 +5554,7 @@ function AutoSmurf() {
 			delay(10);
 		}
 
-		sendPacket(1, 0x40); 
+		sendPacket(1, 0x40);
 		delay(me.ping*2);
 
 		if (!this.partyLevel(baalLvl) || (me.diff === 1 && !this.partyLevel(baalLvlnm)) || (me.diff === 2 && !this.partyLevel(mfLvlhell))) { // If the team hasn't met the level requirement in Normal or Nightmare, don't kill baal.
@@ -5620,7 +5622,7 @@ function AutoSmurf() {
 	//addEventListener("chatmsg", chatEvent);
 	addEventListener("copydata", (id, data) => {
 		let { msg, nick } = JSON.parse(data);
-// Here is modified by Dark-f 2018-2-21
+		// Dark-f ->
 		if ( iAmReady && Config.AutoSmurf.TeamSize === 1 ) {
 			teamIsReady = true;
 
@@ -5628,14 +5630,14 @@ function AutoSmurf() {
 
 			Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "team is ready");
 		}
-// Dark-f
+		// <- Dark-f
 		if (id == 55) {
 			switch (msg) {
 			case "ready":
 				readyCount += 1;
 
 				print("readyCount = " + readyCount);
-				
+
 				if (iAmReady && readyCount === Config.AutoSmurf.TeamSize - 1) {  // Doesn't count my ready because my messages are ignored. Subtract one from TeamSize to account for this.
 					if (!teamIsReady) { // Only need to change teamIsReady to true once.
 						teamIsReady = true;
@@ -5787,13 +5789,13 @@ function AutoSmurf() {
 			}
 		}
 	});
-/*
+	/*
 	getScript("tools/Party.js").pause();
 
 	if(getParty(me).partyid != 65535) {
 		clickParty(getParty(me.name), 3); // Leave party so the others will wait for me.
 	}
-*/
+	*/
 	this.checkRole();
 
 	var tick = getTickCount();
@@ -5810,7 +5812,7 @@ function AutoSmurf() {
 		}
 	}
 	this.start();
-	
+
 	//act1
 	if (!me.getQuest(7, 0)) { // Andariel is not done.
 		Town.goToTown(1);
@@ -5871,7 +5873,7 @@ function AutoSmurf() {
 			if (!me.getItem(549) || getCube || me.charlvl < 18) { // No cube or team member is requesting cube or am not level 18 yet (required to teleport to the summoner).
 				if(me.diff === 0)
 					this.hireMerc();
-				Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "cube");				
+				Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "cube");
 				this.cube();
 			}
 
@@ -5891,7 +5893,7 @@ function AutoSmurf() {
 			}
 
 			if (!this.partyLevel(tombsLvl) && me.diff === 0) {
-				this.travel(5); // Travel to all waypoints up to and including Canyon Of The Magi if I don't have them.				
+				this.travel(5); // Travel to all waypoints up to and including Canyon Of The Magi if I don't have them.
 				Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "tombs");
 				this.tombs(); // Clears to the chest in all of Tal Rashas Tomb's (except for the one with the Orifice). Will quit() at the end if the team hasn't reached tombsLvl requirement.
 			}
@@ -5906,7 +5908,7 @@ function AutoSmurf() {
 			}
 
 			if (!me.getQuest(9, 0)){ // && me.diff <= 2) { // Haven't finished Radament's Lair.
-				Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "radament");				
+				Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "radament");
 				this.radament();
 			}
 
@@ -6070,7 +6072,7 @@ function AutoSmurf() {
 
 		if (teleportingSorc) { // I am the Teleporting Sorc
 			var checkPartyAct;
-			
+
 			while (!checkPartyAct) { // Wait for everyone to get back to their Town, then record the lowest Town.
 				checkPartyAct = this.partyAct();
 
@@ -6101,7 +6103,7 @@ function AutoSmurf() {
 	if(me.gametype === 1 && teleportingSorc && me.getQuest(39, 0) && !getWaypoint(38) )
 		Pather.getWP(129, false);
 	if (me.gametype === 1 && me.getQuest(39, 0) && ((me.diff == 1 && !this.partyLevel(baalLvlnm)) || me.diff == 2)) { //Dark-f
-		if (teleportingSorc) { 
+		if (teleportingSorc) {
 			D2Bot.printToConsole("I'm the leader, changed script.");
 			OnOff.enable("Config.MFLeader");
 			OnOff.enable("Scripts.Andariel");
@@ -6112,13 +6114,13 @@ function AutoSmurf() {
 			OnOff.enable("Scripts.Duriel");
 			OnOff.enable("Scripts.Travincal");
 			OnOff.enable("Scripts.Mephisto");
-			OnOff.enable("Scripts.Pindleskin");	
+			OnOff.enable("Scripts.Pindleskin");
 			OnOff.enable("Scripts.Eldritch");
 			//OnOff.enable("Scripts.Nihlathak");
 			OnOff.enable("Scripts.Diablo");
 			OnOff.enable("Scripts.Baal");
 			if((me.diff === 1 && !this.partyLevel(baalLvlnm)) || (me.diff == 2 && !this.partyLevel(mfLvlhell)))
-				OnOff.disable("Config.Baal.KillBaal");	
+				OnOff.disable("Config.Baal.KillBaal");
 		} else {
 			OnOff.enable("Scripts.MFHelper");
 			OnOff.enable("Scripts.DiabloHelper");
@@ -6144,18 +6146,17 @@ function AutoSmurf() {
 		}
 
 		if ( !me.getQuest(37, 0) ) { //Dark-f
-
 			this.anya();
 		}
-		// Rite of Passage is not complete.
-		if (!me.getQuest(39, 0)) 
+		// Rite of Passage is not completed
+		if (!me.getQuest(39, 0))
 			this.ancients();
 		if (teleportingSorc && !getWaypoint(38))
 			Pather.getWP(129, false);
 
 		if(runDiablo === 0 && me.diff === 0) { // running diablo
 			Town.goToTown(4);
-			this.diablo(); 
+			this.diablo();
 			Town.goToTown(4);
 			Town.doChores();
 			Pather.useWaypoint(129);
@@ -6238,7 +6239,7 @@ var OnOff = {
 			return false;
 		}
 		var lines = confFile.readAllLines();
-		confFile.close(); 
+		confFile.close();
 
 		for (var i = 0; i < lines.length; i++) {
 			if (lines[i].match(line + " = ")) {
@@ -6265,7 +6266,7 @@ var OnOff = {
 		}
 
 		var lines = confFile.readAllLines();
-		confFile.close(); 
+		confFile.close();
 
 		for (var i = 0; i < lines.length; i++) {
 			if (lines[i].match(line + " = ")) {

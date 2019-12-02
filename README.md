@@ -44,11 +44,11 @@
 
 	**all** = the followers which will join the game and will follow in-game the leaders's tps
 
-2. optionally you can set in the 48th line of D2BotFollow.js the delays for joining the game.
+3. optionally you can set in the 48th line of D2BotFollow.js the delays for joining the game.
 
-3. maybe it will be better if you will also set [delays for quitting the games](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#followers-exit-delays)
+4. maybe it will be better if you will also set [delays for quitting the games](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#followers-exit-delays) - the included ...\kolbot\tools\ToolsThread.js have that add-on in line 429.
 
-4. you can take a look to [D2BotLead randomized timers](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#randomize-the-timers) and to [D2BotFollow randomized timers](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#randomize-the-timers-1)
+5. if you wanna randomize the starter scripts timers - the included D2BotFollow.dbj and D2BotLead.dbj have the randomized timers. In D2BotFollow.dbj, you should complete the changes mentioned at steps 2 and 3.
 
 ### Configuration
 
@@ -119,7 +119,7 @@ If you want to not use Mercs, you should set Config.UseMerc = false which is loc
 
 3. When your bot team completed Rite of Passage in Nightmare and Hell, the AutoSmurf was transfered into MF mode. But killing baal was restricted by charLvls which are baalLvlnm and mfLvlHell.
 
-4. You may reset the values of line 16-30 in AutoSmurf.js. These values restrict your bot level to begin some quests, like "tombsLvl = 30" (line 30) means that your bot level must be more than 28 and your bot will begin to kill Duriel. Because the beginner bots equips mostly low quality items, if you want to reduce the number of chicken exits, the suggestion is to not change the default values. The default values will keep your bot safety, but on lower areas the leveling up speed is a bit slower.
+4. You may reset the values of [lines 16-30 in AutoSmurf.js](https://github.com/blizzhackers/autosmurf/blob/master/d2bs/kolbot/libs/bots/AutoSmurf.js#L16-L30). These values restrict your bot level to begin some quests, like "tombsLvl = 30" (line 30) means that your bot level must be more than 28 and your bot will begin to kill Duriel. Because the beginner bots equips mostly low quality items, if you want to reduce the number of chicken exits, the suggestion is to not change the default values. The default values will keep your bot safety, but on lower areas the leveling up speed is a bit slower.
 
 5. You do not need to give any gold to your bot on first running of the AutoSmurf.
 
@@ -130,6 +130,6 @@ If you want to not use Mercs, you should set Config.UseMerc = false which is loc
 3. Javazon and Druid Autobuilds are unfinished, Amazon and Druid will only auto-build till lvl 36, and after that you must set skills and stats manually, or you can edit amazon/druid autobuilds for your needs.
 
 
-Special thanks to [@dark-f](https://d2bot.discourse.group/u/hk-dark-f/) who made a great job with the original [@jeanmax autosmurf script](https://github.com/JeanMax/AutoSmurf), updating it and sharing the changes to public.
+**Special thanks** to [@dark-f](https://d2bot.discourse.group/u/hk-dark-f/) who made a great job with the original [@JeanMax](https://github.com/JeanMax/)[autosmurf script](https://github.com/JeanMax/AutoSmurf), for updating it and sharing the changes to public.
 
 Happy Smurfing!
