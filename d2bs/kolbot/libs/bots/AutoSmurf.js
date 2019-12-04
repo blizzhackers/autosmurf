@@ -1,9 +1,9 @@
 /**
-*	@filename		AutoSmurf.js
-*	@author			JeanMax / SiC-666 / Dark-f
+*	@filename	AutoSmurf.js
+*	@author		JeanMax / SiC-666 / Dark-f
 *	@contributors	Alogwe, Imba, Kolton, Larryw, Noah, QQValpen, Sam, YGM
-*	@desc			Questing, Leveling & Smurfing
-*	@version		2019
+*	@desc		Questing, Leveling & Smurfing
+*	@version	2019
 */
 
 function AutoSmurf() {
