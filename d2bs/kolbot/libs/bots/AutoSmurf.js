@@ -1,7 +1,7 @@
 /**
 *	@filename		AutoSmurf.js
 *	@author			JeanMax / SiC-666 / Dark-f
-*	@contributors 	Alogwe, Imba, Kolton, Larryw, Noah, QQValpen, Sam, YGM
+*	@contributors	Alogwe, Imba, Kolton, Larryw, Noah, QQValpen, Sam, YGM
 *	@desc			Questing, Leveling & Smurfing
 *	@version		2019
 */
@@ -96,7 +96,7 @@ function AutoSmurf() {
 			print("I am the BOer");
 		} else {
 			for (var i = 0 ; i < Config.AutoSmurf.OtherChars.length ; i += 1) {
-				if (Config.AutoSmurf.Other.Chars[i] === me.name) {
+				if (Config.AutoSmurf.OtherChars[i] === me.name) {
 					otherChar = true;
 
 					print("I am a Follower");
