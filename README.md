@@ -46,9 +46,7 @@
 
 3. optionally you can set in the 48th line of D2BotFollow.js the delays for joining the game.
 
-4. maybe it will be better if you will also set [delays for quitting the games](https://github.com/blizzhackers/documentation/blob/master/kolbot/MultiBotting.md#followers-exit-delays) - the included ...\kolbot\tools\ToolsThread.js have that add-on in [line 429](https://github.com/blizzhackers/autosmurf/blob/master/d2bs/kolbot/tools/ToolsThread.js#L429).
-
-5. if you wanna randomize the starter scripts timers - the included D2BotFollow.dbj and D2BotLead.dbj have the randomized timers. In D2BotFollow.dbj, you should complete the changes mentioned at steps 2 and 3.
+4. if you wanna randomize the starter scripts timers - the included D2BotFollow.dbj and D2BotLead.dbj have the randomized timers. In D2BotFollow.dbj, you should complete the changes mentioned at steps 2 and 3.
 
 ### Configuration
 
@@ -70,10 +68,11 @@
 			Config.AutoSmurf.AllTeamProfiles = ["As1","As2","As3","As4"]; // the whole team PROFILE names
 	```
 
-2. complete the leeching section - line 139 with the **profile names**, according to line 140 (Config.QuitListMode = 1):
+2. complete the leeching section - line 139 with the **profile names**, according to line 140 (Config.QuitListMode = 1). Leader which will quit the game in case of a follower's exit (maybe chicken) will keep the whole team on the same quests/levels.
 	```javascript
 		Config.QuitList = ["As2", "As3", "As4"]; // List of character names to quit with.
 		Config.QuitListMode = 1; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
+		Config.QuitListDelay = [3, 5]; // Quit the game with random delay in case of using Config.QuitList. Example: Config.QuitListDelay = [1, 10];
 	```
 
 3. complete the line 663 with the desired autobuild template. For sorceress you can choose "Blizzard", "ChainL", "Meteor" 
@@ -103,6 +102,12 @@
 		Config.Leader = "AbC"; // Leader's ingame character name. Leave blank to try auto-detection (works in AutoBaal, Wakka, MFHelper)
 		Config.QuitList = ["As1"]; // List of character names to quit with.
 		Config.QuitListMode = 1; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
+	```
+	line 141 should have different quit delays for every follower
+	```
+		Config.QuitListDelay = [3, 5];
+		Config.QuitListDelay = [5, 7];
+		Config.QuitListDelay = [8, 10];
 	```
 
 3. Around line 654-664th line you must specify the build of the bot, according to your existing build template:
