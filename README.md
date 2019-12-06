@@ -134,6 +134,6 @@
 2. Javazon and Druid Autobuilds are unfinished, Amazon and Druid will only auto-build till lvl 36, and after that you must set skills and stats manually, or you can edit amazon/druid autobuilds for your needs.
 
 
-**Special thanks** to [@dark-f](https://d2bot.discourse.group/u/hk-dark-f/) who made a great job with the original [@JeanMax](https://github.com/JeanMax/)[autosmurf script](https://github.com/JeanMax/AutoSmurf), for updating it and sharing the changes to public.
+**Special thanks** to [@dark-f](https://d2bot.discourse.group/u/hk-dark-f/) who made a great job with the original [@JeanMax](https://github.com/JeanMax/) - [autosmurf script](https://github.com/JeanMax/AutoSmurf), for updating it and sharing the changes to public.
 
 Happy Smurfing!

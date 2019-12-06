@@ -1,4 +1,4 @@
-/**
+/** Hammerdin Paladin Build
 *
 * Instructions:	See /d2bs/kolbot/libs/config/Builds/README.txt
 *

@@ -1,6 +1,4 @@
-//	/d2bs/kolbot/libs/config/Builds/Class.Build.js
-
-/**
+/** Trap Assassin Build
 *
 * Instructions:	See /d2bs/kolbot/libs/config/Builds/README.txt
 *

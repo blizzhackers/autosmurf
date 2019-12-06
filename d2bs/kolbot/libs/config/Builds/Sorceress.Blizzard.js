@@ -1,4 +1,4 @@
-/** This is for Blizzard Sorceress
+/** Blizzard Sorceress Build
 *
 * Instructions:	See /d2bs/kolbot/libs/config/Builds/README.txt
 *

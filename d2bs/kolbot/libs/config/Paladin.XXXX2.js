@@ -435,51 +435,51 @@ function LoadConfig() {
 	//Config.Runewords.push([Runeword.Insight, "battlescythe"]);
 	//Config.Runewords.push([Runeword.Insight, "partizan"]);
 	//Config.Runewords.push([Runeword.Insight, "becdecorbin"]);
-	Config.Runewords.push([Runeword.Insight, "thresher"]); 
-	Config.Runewords.push([Runeword.Insight, "crypticaxe"]); 
-	Config.Runewords.push([Runeword.Insight, "greatpoleaxe"]); 
-	Config.Runewords.push([Runeword.Insight, "colossusvoulge"]); 
+	Config.Runewords.push([Runeword.Insight, "thresher"]);
+	Config.Runewords.push([Runeword.Insight, "crypticaxe"]);
+	Config.Runewords.push([Runeword.Insight, "greatpoleaxe"]);
+	Config.Runewords.push([Runeword.Insight, "colossusvoulge"]);
 
 	Config.KeepRunewords.push("[type] == polearm # [meditationaura] <= 17");
 
 	//smoke
-	//Config.Runewords.push([Runeword.Smoke, "lightplate"]); 
-	//Config.Runewords.push([Runeword.Smoke, "ghostarmor"]); 
-	//Config.Runewords.push([Runeword.Smoke, "serpentskinarmor"]); 
-	//Config.Runewords.push([Runeword.Smoke, "demonhidearmor"]); 
-	Config.Runewords.push([Runeword.Smoke, "cuirass"]); 
-	Config.Runewords.push([Runeword.Smoke, "mageplate"]); 
-	Config.Runewords.push([Runeword.Smoke, "duskShroud"]); 
-	Config.Runewords.push([Runeword.Smoke, "wyrmhide"]); 
-	Config.Runewords.push([Runeword.Smoke, "scarabHusk"]); 
-	Config.Runewords.push([Runeword.Smoke, "wireFleece"]); 
-	Config.Runewords.push([Runeword.Smoke, "greatHauberk"]); 
+	//Config.Runewords.push([Runeword.Smoke, "lightplate"]);
+	//Config.Runewords.push([Runeword.Smoke, "ghostarmor"]);
+	//Config.Runewords.push([Runeword.Smoke, "serpentskinarmor"]);
+	//Config.Runewords.push([Runeword.Smoke, "demonhidearmor"]);
+	Config.Runewords.push([Runeword.Smoke, "cuirass"]);
+	Config.Runewords.push([Runeword.Smoke, "mageplate"]);
+	Config.Runewords.push([Runeword.Smoke, "duskShroud"]);
+	Config.Runewords.push([Runeword.Smoke, "wyrmhide"]);
+	Config.Runewords.push([Runeword.Smoke, "scarabHusk"]);
+	Config.Runewords.push([Runeword.Smoke, "wireFleece"]);
+	Config.Runewords.push([Runeword.Smoke, "greatHauberk"]);
 	Config.Runewords.push([Runeword.Smoke, "boneweave"]);
-	Config.Runewords.push([Runeword.Smoke, "balrogSkin"]); 
-	Config.Runewords.push([Runeword.Smoke, "archonPlate"]); 
+	Config.Runewords.push([Runeword.Smoke, "balrogSkin"]);
+	Config.Runewords.push([Runeword.Smoke, "archonPlate"]);
 
 	Config.KeepRunewords.push("[type] == armor # [FireResist] == 50 && [LightResist] == 50 "); 
 
 	//AncientsPledge
 	//Config.Runewords.push([Runeword.AncientsPledge, "kiteshield"]);
-	//Config.Runewords.push([Runeword.AncientsPledge, "largeshield"]); 
-	//Config.Runewords.push([Runeword.AncientsPledge, "boneshield"]); 
-	//Config.Runewords.push([Runeword.AncientsPledge, "targe"]); 
-	//Config.Runewords.push([Runeword.AncientsPledge, "rondache"]); 
-	//Config.Runewords.push([Runeword.AncientsPledge, "aerinshield"]); 
+	//Config.Runewords.push([Runeword.AncientsPledge, "largeshield"]);
+	//Config.Runewords.push([Runeword.AncientsPledge, "boneshield"]);
+	//Config.Runewords.push([Runeword.AncientsPledge, "targe"]);
+	//Config.Runewords.push([Runeword.AncientsPledge, "rondache"]);
+	//Config.Runewords.push([Runeword.AncientsPledge, "aerinshield"]);
 	//Config.Runewords.push([Runeword.AncientsPledge, "crownshield"]);
 	//Config.Runewords.push([Runeword.AncientsPledge, "royalshield"]);
 
 	Config.KeepRunewords.push("[type] == shield # [FireResist] >= 40 && [LightResist] >= 40 ");
 
 	//Lore
-	//Config.Runewords.push([Runeword.Lore, "cap"]); 
-	//Config.Runewords.push([Runeword.Lore, "skullcap"]); 
-	//Config.Runewords.push([Runeword.Lore, "crown"]); 
-	//Config.Runewords.push([Runeword.Lore, "mask"]); 
-	//Config.Runewords.push([Runeword.Lore, "bonehelm"]); 
-	//Config.Runewords.push([Runeword.Lore, "warhat"]); 
-	//Config.Runewords.push([Runeword.Lore, "grimhelm"]); 
+	//Config.Runewords.push([Runeword.Lore, "cap"]);
+	//Config.Runewords.push([Runeword.Lore, "skullcap"]);
+	//Config.Runewords.push([Runeword.Lore, "crown"]);
+	//Config.Runewords.push([Runeword.Lore, "mask"]);
+	//Config.Runewords.push([Runeword.Lore, "bonehelm"]);
+	//Config.Runewords.push([Runeword.Lore, "warhat"]);
+	//Config.Runewords.push([Runeword.Lore, "grimhelm"]);
 	//Config.Runewords.push([Runeword.Lore, "GrandCrown"]);
 	//Config.Runewords.push([Runeword.Lore, "Demonhead"]);
 	//Config.Runewords.push([Runeword.Lore, "BoneVisage"]);
@@ -493,16 +493,16 @@ function LoadConfig() {
 	Config.KeepRunewords.push("[type] == sword # [itemallskills] == 2");
 
 	//Spirit Shield
-	//Config.Runewords.push([Runeword.Spirit, "targe"]); 
-	//Config.Runewords.push([Runeword.Spirit, "rondache"]); 
-	//Config.Runewords.push([Runeword.Spirit, "heraldicshield"]); 
-	//Config.Runewords.push([Runeword.Spirit, "aerinshield"]); 
-	//Config.Runewords.push([Runeword.Spirit, "crownshield"]); 
-	//Config.Runewords.push([Runeword.Spirit, "akarantarge"]); 
-	//Config.Runewords.push([Runeword.Spirit, "akaranrondache"]); 
-	//Config.Runewords.push([Runeword.Spirit, "protectorshield"]); 
-	//Config.Runewords.push([Runeword.Spirit, "gildedshield"]); 
-	//Config.Runewords.push([Runeword.Spirit, "royalshield"]); 
+	//Config.Runewords.push([Runeword.Spirit, "targe"]);
+	//Config.Runewords.push([Runeword.Spirit, "rondache"]);
+	//Config.Runewords.push([Runeword.Spirit, "heraldicshield"]);
+	//Config.Runewords.push([Runeword.Spirit, "aerinshield"]);
+	//Config.Runewords.push([Runeword.Spirit, "crownshield"]);
+	//Config.Runewords.push([Runeword.Spirit, "akarantarge"]);
+	//Config.Runewords.push([Runeword.Spirit, "akaranrondache"]);
+	//Config.Runewords.push([Runeword.Spirit, "protectorshield"]);
+	//Config.Runewords.push([Runeword.Spirit, "gildedshield"]);
+	//Config.Runewords.push([Runeword.Spirit, "royalshield"]);
 	Config.Runewords.push([Runeword.Spirit, "Monarch"]);  
 	Config.Runewords.push([Runeword.Spirit, "SacredTarge"]);  
 	Config.Runewords.push([Runeword.Spirit, "sacredrondache"]); 

@@ -1,6 +1,4 @@
-//   /d2bs/kolbot/libs/config/Builds/Class.Build.js
-
-/**
+/** Summoner Necromancer Build
 *
 * Instructions:   See /d2bs/kolbot/libs/config/Builds/README.txt
 *
@@ -8,11 +6,25 @@
 *
 * Stat IDs:
 *
-*    Strength   = 0
-*    Energy      = 1
-*    Dexterity   = 2
-*    Vitality   = 3
+* 	Strength	= 0
+* 	Energy		= 1
+* 	Dexterity	= 2
+* 	Vitality	= 3
 *
+
+Finished Char Build:
+
+    Stats                                                    Base Stats
+    ------------                                             ----------
+    Strength (0) :      15 (no points)                       15
+    Energy   (1) :      20 (no points)                       20
+    Dexterity(2) :      20 (no points)                       20
+    Vitality (3) :      200 (175 points used)                25
+
+    Skills              Levelreq            SkillID          TotalPoints
+    ------------        --------            -------          -----------
+    xxx                 1                   xx               1    - Done @ level
+    xxx                 1                   xx               1    - Done @ level
 */
 js_strict(true);
 

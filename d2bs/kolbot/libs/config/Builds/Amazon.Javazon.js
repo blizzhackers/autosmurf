@@ -1,7 +1,20 @@
-
-/* Amazon.Build.js -- [Amazon Automatic Addition Points Template]
+/**  Amazon Build - unfinished
+*
+* Instructions:   See /d2bs/kolbot/libs/config/Builds/README.txt
+*
+* Skill IDs:   See /d2bs/kolbot/sdk/skills.txt for a list of skill IDs.
+*
+* Stat IDs:
+*
+* 	Strength	= 0
+* 	Energy		= 1
+* 	Dexterity	= 2
+* 	Vitality	= 3
+*
+*
 
 Finished Char Build:
+
     Stats                                                    Base Stats
     ------------                                             ----------
     Strength (0) :      20 (no points)                       20

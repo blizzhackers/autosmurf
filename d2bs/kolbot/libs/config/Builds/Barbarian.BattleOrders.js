@@ -1,4 +1,4 @@
-/**
+/** BattleOrders Barbarian Build
 *
 * Instructions:	See /d2bs/kolbot/libs/config/Builds/README.txt
 *
@@ -11,14 +11,6 @@
 * 	Dexterity	= 2
 * 	Vitality	= 3
 *
-
-alogwe	<alogwe> you can regex find/replace your existing build template using
-13:31	alogwe	<alogwe> Find: (SkillPoint):\s(.+\d),
-13:31	alogwe	<alogwe> Replace: \1s: [\2],
-13:31	alogwe	<alogwe> changes SkillPoint: -1, to SkillPoints: [-1], etc
-13:31	alogwe	<alogwe> or w/e the value is
-13:31	alogwe	<alogwe> what lvl is everyone?
-13:31	alogwe	<alogwe> afk a bit
 
 Finished Char Build:
 

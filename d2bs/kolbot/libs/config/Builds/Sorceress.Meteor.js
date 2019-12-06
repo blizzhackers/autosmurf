@@ -1,4 +1,4 @@
-/** This is for Meteor Sorceress
+/** Meteor Sorceress Build
 *
 * Instructions:	See /d2bs/kolbot/libs/config/Builds/README.txt
 *
@@ -11,36 +11,6 @@
 * 	Dexterity	= 2
 * 	Vitality	= 3
 *
-36	Fire Bolt
-37	Warmth
-38	Charged Bolt
-39	Ice Bolt
-40	Frozen Armor
-41	Inferno
-42	Static Field
-43	Telekinesis
-44	Frost Nova
-45	Ice Blast
-46	Blaze
-47	Fire Ball
-48	Nova
-49	Lightning
-50	Shiver Armor
-51	Fire Wall
-52	Enchant
-53	Chain Lightning 
-54	Teleport
-55	Glacial Spike
-56	Meteor
-57	Thunder Storm
-58	Energy Shield
-59	Blizzard
-60	Chilling Armor
-61	Fire Mastery
-62	Hydra
-63	Lightning Mastery
-64	Frozen Orb
-65	Cold Mastery
 
 Finished Char Build:
 
