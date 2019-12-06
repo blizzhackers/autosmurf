@@ -22,7 +22,6 @@ function LoadConfig() {
 
 	Config.AutoEquip = false;
 
-
 	// User addon script. Read the description in libs/bots/UserAddon.js
 	Scripts.UserAddon = false; // !!!YOU MUST SET THIS TO FALSE IF YOU WANT TO RUN BOSS/AREA SCRIPTS!!!
 
