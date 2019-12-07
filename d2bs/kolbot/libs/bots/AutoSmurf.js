@@ -29,7 +29,7 @@ function AutoSmurf() {
 
 	//-------------------be-sure-of-what-you-edit-under-this-line--------------------------------------------//
 		placeToBe, teamBrain, nickTP,
-		nonSorcChar = false, // SiC-666 TODO: Change this to follower.
+		otherChar = false, // SiC-666 TODO: Change this to follower.
 		teleportingSorc = false, // SiC-666 TODO: Change this to Leader (should be able to teleport).
 		boBarb = false, // SiC-666 TODO: Change this name?
 		readyCount = 0,
@@ -2740,7 +2740,7 @@ function AutoSmurf() {
 				Town.goToTown();
 			}
 
-			if ((!boBarb && !nonSorcChar) || me.diff === 0) {
+			if ((!boBarb && !otherChar) || me.diff === 0) {
 
 				this.travel(1);
 
@@ -4248,7 +4248,7 @@ function AutoSmurf() {
 		this.teamInGame();
 
 		if (!me.getQuest(25, 1)) {
-			if (!boBarb && !nonSorcChar) {
+			if (!boBarb && !otherChar) {
 				Pather.teleport = true;
 
 				Town.goToTown();
@@ -5441,7 +5441,7 @@ function AutoSmurf() {
 					Pather.teleport = false;
 				}
 			}catch(e) {
-					if (!boBarb && !nonSorcChar) {
+					if (!boBarb && !otherChar) {
 						Pather.teleport = true;
 						Town.goToTown();
 						Pather.useWaypoint(129);
