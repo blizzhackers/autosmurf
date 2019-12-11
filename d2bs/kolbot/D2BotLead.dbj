@@ -1,10 +1,10 @@
 var StarterConfig = {
 	MinGameTime: rand(150, 180), // Minimum game length in seconds. If a game is ended too soon, the rest of the time is waited in the lobby
 	PingQuitDelay: rand(30, 40), // Time in seconds to wait in lobby after quitting due to high ping
-	CreateGameDelay: rand(10e3, 15e3), // Miliseconds to wait before creating a new game
+	CreateGameDelay: rand(10e3, 15e3), // Milliseconds to wait before creating a new game
 	ResetCount: 999, // Reset game count back to 1 every X games.
 	CharacterDifference: 99, // Character level difference. Set to false to disable character difference.
-	ChatActionsDelay: rand(2e3, 5e3), // Miliseconds to wait in lobby before entering a channel
+	ChatActionsDelay: rand(2e3, 5e3), // Milliseconds to wait in lobby before entering a channel
 
 	// ChannelConfig can override these options for individual profiles.
 	JoinChannel: "", // Default channel. Can be an array of channels - ["channel 1", "channel 2"]
@@ -13,15 +13,15 @@ var StarterConfig = {
 	AfterGameMessage: "", // Default message after a finished game. Can be an array of messages
 
 	SwitchKeyDelay: rand(5, 15), // Seconds to wait before switching a used/banned key or after realm down
-	CrashDelay: rand(60e3, 120e3), // Miliseconds to wait after a d2 window crash
-	FTJDelay: rand(25e3, 30e3), // Miliseconds to wait after failing to create a game
+	CrashDelay: rand(60e3, 120e3), // Milliseconds to wait after a d2 window crash
+	FTJDelay: rand(25e3, 30e3), // Milliseconds to wait after failing to create a game
 	RealmDownDelay: rand(3, 7), // Minutes to wait after getting Realm Down message
 	UnableToConnectDelay: rand(5, 10), // Minutes to wait after Unable To Connect message
 	CDKeyInUseDelay: rand(5, 10), // Minutes to wait before connecting again if CD-Key is in use.
-	ConnectingTimeout: rand(25e3, 30e3), // Miliseconds to wait before cancelling the 'Connecting...' screen
-	PleaseWaitTimeout: rand(20e3, 30e3), // Miliseconds to wait before cancelling the 'Please Wait...' screen
-	WaitInLineTimeout: rand(60e3, 90e3), // Miliseconds to wait before cancelling the 'Waiting in Line...' screen
-	GameDoesNotExistTimeout: rand(30e3, 40e3) // Miliseconds to wait before cancelling the 'Game does not exist.' screen
+	ConnectingTimeout: rand(25e3, 30e3), // Milliseconds to wait before cancelling the 'Connecting...' screen
+	PleaseWaitTimeout: rand(20e3, 30e3), // Milliseconds to wait before cancelling the 'Please Wait...' screen
+	WaitInLineTimeout: rand(60e3, 90e3), // Milliseconds to wait before cancelling the 'Waiting in Line...' screen
+	GameDoesNotExistTimeout: rand(30e3, 40e3) // Milliseconds to wait before cancelling the 'Game does not exist.' screen
 };
 
 var ChannelConfig = {

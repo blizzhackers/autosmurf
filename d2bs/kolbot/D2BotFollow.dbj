@@ -1,19 +1,19 @@
 var StarterConfig = {
 	JoinChannel: "", // Name of the channel to join
 	FirstJoinMessage: "", // Message to say when first joining a channel, usually ".login"
-	ChatActionsDelay: rand(2e3, 7e3), // Miliseconds to wait in lobby before entering a channel
+	ChatActionsDelay: rand(2e3, 7e3), // Milliseconds to wait in lobby before entering a channel
 
 	JoinRetryDelay: rand(5e3, 15e3), // Time in miliseconds to wait before next join attempt
 	SwitchKeyDelay: rand(5, 15), // Seconds to wait before switching a used/banned key or after realm down
 
-	CrashDelay: rand(60e3, 120e3), // Miliseconds to wait after a d2 window crash
+	CrashDelay: rand(60e3, 120e3), // Milliseconds to wait after a d2 window crash
 	RealmDownDelay: rand(3, 5), // Minutes to wait after getting Realm Down message
 	UnableToConnectDelay: rand(2, 7), // Minutes to wait after Unable To Connect message
 	CDKeyInUseDelay: rand(2, 7), // Minutes to wait before connecting again if CD-Key is in use. SwitchKeys overrides this!
-	ConnectingTimeout: rand(25e3, 30e3), // Miliseconds to wait before cancelling the 'Connecting...' screen
-	PleaseWaitTimeout: rand(30e3, 40e3), // Miliseconds to wait before cancelling the 'Please Wait...' screen
-	WaitInLineTimeout: rand(60e3, 120e3), // Miliseconds to wait before cancelling the 'Waiting in Line...' screen
-	GameDoesNotExistTimeout: rand(30e3, 60e3) // Miliseconds to wait before cancelling the 'Game does not exist.' screen
+	ConnectingTimeout: rand(25e3, 30e3), // Milliseconds to wait before cancelling the 'Connecting...' screen
+	PleaseWaitTimeout: rand(30e3, 40e3), // Milliseconds to wait before cancelling the 'Please Wait...' screen
+	WaitInLineTimeout: rand(60e3, 120e3), // Milliseconds to wait before cancelling the 'Waiting in Line...' screen
+	GameDoesNotExistTimeout: rand(30e3, 60e3) // Milliseconds to wait before cancelling the 'Game does not exist.' screen
 };
 
 /* Join game settings
