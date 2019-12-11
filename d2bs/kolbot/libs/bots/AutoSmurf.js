@@ -1731,7 +1731,7 @@ function AutoSmurf() {
 			if (time>30) {
 				quit();
 			}
-		delay(1000);
+			delay(1000);
 		}
 		return true;
 	}; // <- Dark-f
