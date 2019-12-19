@@ -346,9 +346,9 @@ function AutoSmurf() {
 					Pather.useWaypoint(1);
 				}
 
-				Town.move("akara");
+				Town.move(NPC.Akara);
 
-				var akara = getUnit(1, "akara");
+				var akara = getUnit(1, NPC.Akara);
 
 				if (akara) {
 					akara.startTrade();
@@ -979,9 +979,9 @@ function AutoSmurf() {
 			while (!drognan || !drognan.openMenu()) { // Try more than once to interact with Drognan.
 				Packet.flash(me.gid);
 
-				Town.move("drognan");
+				Town.move(NPC.Drognan);
 
-				drognan = getUnit(1, "drognan");
+				drognan = getUnit(1, NPC.Drognan);
 
 				delay(1000);
 			}
@@ -993,9 +993,9 @@ function AutoSmurf() {
 			while (!cain || !cain.openMenu()) { // Try more than once to interact with Deckard Cain.
 				Packet.flash(me.gid);
 
-				Town.move("cain");
+				Town.move(NPC.Cain);
 
-				cain = getUnit(1, "deckard cain");
+				cain = getUnit(1, NPC.Cain);
 
 				delay(1000);
 			}
@@ -1007,9 +1007,9 @@ function AutoSmurf() {
 			while (!cain || !cain.openMenu()) { // Try more than once to interact with Deckard Cain.
 				Packet.flash(me.gid);
 
-				Town.move("cain");
+				Town.move(NPC.Cain);
 
-				cain = getUnit(1, "deckard cain");
+				cain = getUnit(1, NPC.Cain);
 
 				delay(1000);
 			}
@@ -1624,9 +1624,9 @@ function AutoSmurf() {
 					break;
 				}
 
-				Town.move("warriv");
+				Town.move(NPC.Warriv);
 
-				npc = getUnit(1, "warriv");
+				npc = getUnit(1, NPC.Warriv);
 
 				if (!npc || !npc.openMenu()) {
 					return false;
@@ -1640,7 +1640,7 @@ function AutoSmurf() {
 					break;
 				}
 				Town.move("palace");
-				npc = getUnit(1, "jerhyn");
+				npc = getUnit(1, NPC.Jerhyn);
 				if (!npc || !npc.openMenu()) {
 					Pather.moveTo(5166, 5206);
 
@@ -1666,9 +1666,9 @@ function AutoSmurf() {
 						}
 					}
 				}
-				Town.move("meshif");
+				Town.move(NPC.Meshif);
 
-				npc = getUnit(1, "meshif");
+				npc = getUnit(1, NPC.Meshif);
 
 				if (!npc || !npc.openMenu()) {
 					return false;
@@ -1687,8 +1687,8 @@ function AutoSmurf() {
 				if (me.act >= 5) {
 					break;
 				}
-				Town.move("tyrael");
-				npc = getUnit(1, "tyrael");
+				Town.move(NPC.Tyrael);
+				npc = getUnit(1, NPC.Tyrael);
 
 				if (!npc || !npc.openMenu()) {
 					return false;
@@ -1901,9 +1901,9 @@ function AutoSmurf() {
 
 		Town.doChores();
 
-		Town.move("akara");
+		Town.move(NPC.Akara);
 
-		akara = getUnit(1, "akara");
+		akara = getUnit(1, NPC.Akara);
 
 		if (akara) {
 			akara.startTrade();
@@ -2171,9 +2171,9 @@ function AutoSmurf() {
 		if (merc.classid !==338 || another === 1) { //act2 merc
 			another =0; // :D
 			Town.goToTown(2);
-			Town.move("greiz");
+			Town.move(NPC.Greiz);
 			Pather.moveTo(me.x + rand(-5, 5), me.y + rand(-5, 5));
-			Town.move("greiz");
+			Town.move(NPC.Greiz);
 
 			//ok this is a bit stupid
 			clickItem(4, 4);
@@ -2220,13 +2220,13 @@ function AutoSmurf() {
 			}
 			delay(1000);
 			addEventListener("gamepacket", gamePacket);
-			greiz = getUnit(1,"greiz");
+			greiz = getUnit(1, NPC.Greiz);
 			if (!greiz || !greiz.openMenu()) {
 				sendPacket(1, 0x4b, 4, me.type, 4, me.gid);
 				delay(1000+me.ping);
-				Town.move("greiz");
+				Town.move(NPC.Greiz);
 				sendPacket(1, 0x4b, 4, me.type, 4, me.gid);
-				greiz = getUnit(1, "greiz");
+				greiz = getUnit(1, NPC.Greiz);
 				greiz.openMenu();
 				if (!greiz || !greiz.openMenu()) {
 					throw new Error("hireMerc : failed to open npc menu");
@@ -2377,9 +2377,9 @@ function AutoSmurf() {
 				}
 			}
 
-			Town.move("akara");
+			Town.move(NPC.Akara);
 
-			akara = getUnit(1, "akara");
+			akara = getUnit(1, NPC.Akara);
 
 			akara.openMenu();
 
@@ -2453,9 +2453,9 @@ function AutoSmurf() {
 		while (!kashya || !kashya.openMenu()) { // Try more than once to interact with Kashya.
 			Packet.flash(me.gid);
 
-			Town.move("kashya");
+			Town.move(NPC.Kashya);
 
-			kashya = getUnit(1, "kashya");
+			kashya = getUnit(1, NPC.Kashya);
 
 			delay(1000);
 		}
@@ -2468,7 +2468,7 @@ function AutoSmurf() {
 	this.cain = function () { // Dark-f: rewrite rescue cain
 		var i, j, akara, cain, slave, scroll1, scroll2, stoneA, stoneB, stoneC, stoneD, stoneE;
 
-		print("cain");
+		print(NPC.Cain);
 		Town.doChores();
 		this.teamInGame();
 		if (!me.getQuest(4, 1) ) { // Cain isn't rescued yet
@@ -2530,8 +2530,8 @@ function AutoSmurf() {
 						}
 					}*/
 				}
-				Town.move("akara");
-				akara = getUnit(1, "akara");
+				Town.move(NPC.Akara);
+				akara = getUnit(1, NPC.Akara);
 				if (akara && akara.openMenu()) {
 					me.cancel();
 				}
@@ -2636,12 +2636,12 @@ function AutoSmurf() {
 				delay(3000);
 			}
 		}
-		Town.move("akara");
-		akara = getUnit(1, "akara");
+		Town.move(NPC.Akara);
+		akara = getUnit(1, NPC.Akara);
 		if (akara && akara.openMenu()) {
 			me.cancel();
 		}
-		Town.move("cain");
+		Town.move(NPC.Cain);
 		cain = getUnit(1, NPC.Cain);
 		if (cain && cain.openMenu()) {
 			me.cancel();
@@ -2990,7 +2990,7 @@ function AutoSmurf() {
 			Storage.Stash.MoveTo(me.getItem(521));
 		}
 
-		Town.move("drognan");
+		Town.move(NPC.Drognan);
 
 		for (i = 0 ; i < 200 ; i += 1) {
 			if (i > 60) {
@@ -3007,9 +3007,9 @@ function AutoSmurf() {
 		while (!drognan || !drognan.openMenu()) { // Try more than once to interact with Drognan.
 			Packet.flash(me.gid);
 
-			Town.move("drognan");
+			Town.move(NPC.Drognan);
 
-			drognan = getUnit(1, "drognan");
+			drognan = getUnit(1, NPC.Drognan);
 
 			delay(1000);
 		}
@@ -3215,9 +3215,9 @@ function AutoSmurf() {
 				while (!cain || !cain.openMenu()) { // Try more than once to interact with Deckard Cain.
 					Packet.flash(me.gid);
 
-					Town.move("cain");
+					Town.move(NPC.Cain);
 
-					cain = getUnit(1, "deckard cain");
+					cain = getUnit(1, NPC.Cain);
 
 					delay(1000);
 				}
@@ -3529,9 +3529,9 @@ function AutoSmurf() {
 				while (!cain || !cain.openMenu()) { // Try more than once to interact with Deckard Cain.
 					Packet.flash(me.gid);
 
-					Town.move("cain");
+					Town.move(NPC.Cain);
 
-					cain = getUnit(1, "deckard cain");
+					cain = getUnit(1, NPC.Cain);
 
 					delay(1000);
 				}
@@ -3601,7 +3601,7 @@ function AutoSmurf() {
 
 			Pather.moveTo(22577, 15609, 10);
 
-			npc = getUnit(1, "tyrael");
+			npc = getUnit(1, NPC.Tyrael);
 
 			if (!npc) {
 				return false;
@@ -3651,36 +3651,36 @@ function AutoSmurf() {
 
 		if (me.getItem(546)) { // Have A Jade Figurine.
 			if (!me.getQuest(20, 2)) { // Not at the "Show Meshif the Figurine" stage yet. Need to talk to Cain.
-				Town.move("cain");
+				Town.move(NPC.Cain);
 
-				cain = getUnit(1, "deckard cain");
+				cain = getUnit(1, NPC.Cain);
 
 				cain.openMenu();
 
 				me.cancel();
 			}
 
-			Town.move("meshif");
+			Town.move(NPC.Meshif);
 
-			meshif = getUnit(1, "meshif");
+			meshif = getUnit(1, NPC.Meshif);
 
 			meshif.openMenu();
 		}
 
 		if (me.getItem(547)) { // Have The Golden Bird.
 			if (!me.getQuest(20, 4)) { // Not at the "Give Golden Bird to Alkor" stage yet. Need to talk to Cain.
-				Town.move("cain");
+				Town.move(NPC.Cain);
 
-				cain = getUnit(1, "deckard cain");
+				cain = getUnit(1, NPC.Cain);
 
 				cain.openMenu();
 
 				me.cancel();
 			}
 
-			Town.move("alkor");
+			Town.move(NPC.Alkor);
 
-			alkor = getUnit(1, "alkor");
+			alkor = getUnit(1, NPC.Alkor);
 
 			alkor.openMenu();
 
@@ -3704,9 +3704,9 @@ function AutoSmurf() {
 		}
 
 		if (!me.getQuest(20, 0)) {
-			Town.move("alkor");
+			Town.move(NPC.Alkor);
 
-			alkor = getUnit(1, "alkor");
+			alkor = getUnit(1, NPC.Alkor);
 
 			alkor.openMenu();
 
@@ -3727,7 +3727,7 @@ function AutoSmurf() {
 			clickItem(1, potion);
 		}
 
-		Town.move("cain");
+		Town.move(NPC.Cain);
 
 		teamFigurine = false;
 
@@ -3791,9 +3791,9 @@ function AutoSmurf() {
 			Messaging.sendToList(Config.AutoSmurf.AllTeamProfiles, "Lam Essen");
 		}
 
-		Town.move("alkor");
+		Town.move(NPC.Alkor);
 
-		target = getUnit(1, "alkor");
+		target = getUnit(1, NPC.Alkor);
 
 		while(target && target.openMenu()) {
 			me.cancel();
@@ -4032,9 +4032,9 @@ function AutoSmurf() {
 		while (!cain || !cain.openMenu()) { // Try more than once to interact with Deckard Cain.
 			Packet.flash(me.gid);
 
-			Town.move("cain");
+			Town.move(NPC.Cain);
 
-			cain = getUnit(1, "deckard cain");
+			cain = getUnit(1, NPC.Cain);
 
 			delay(1000);
 		}
@@ -4162,9 +4162,9 @@ function AutoSmurf() {
 		} else {
 			Town.goToTown(3);
 
-			Town.move("cain");
+			Town.move(NPC.Cain);
 
-			cain = getUnit(1, "deckard cain");
+			cain = getUnit(1, NPC.Cain);
 
 			if (!cain || !cain.openMenu()) {
 				return false;
@@ -4306,9 +4306,9 @@ function AutoSmurf() {
 			Town.goToTown();
 		}
 
-		Town.move("tyrael");
+		Town.move(NPC.Tyrael);
 
-		tyrael = getUnit(1, "tyrael");
+		tyrael = getUnit(1, NPC.Tyrael);
 
 		tyrael.openMenu();
 
@@ -4974,7 +4974,7 @@ function AutoSmurf() {
 	};
 
 	this.anya = function () { // Dark-f: Rewrite this.
-		print("anya");
+		print(NPC.Anya);
 
 		var i, anya, malah, scroll, unit, waitAnya;
 
@@ -5048,8 +5048,8 @@ function AutoSmurf() {
 					}
 
 					Town.goToTown(5);
-					Town.move("malah");
-					malah = getUnit(1, "malah");
+					Town.move(NPC.Malah);
+					malah = getUnit(1, NPC.Malah);
 					while(true) {
 						malah.interact();
 						if (malah && malah.openMenu()) {
@@ -5084,8 +5084,8 @@ function AutoSmurf() {
 				}
 			}
 			Town.goToTown(5);
-			Town.move("malah");
-			malah = getUnit(1, "malah");
+			Town.move(NPC.Malah);
+			malah = getUnit(1, NPC.Malah);
 			while(true) {
 				malah.interact();
 				malah.openMenu();
@@ -5100,19 +5100,19 @@ function AutoSmurf() {
 		if (scroll) {
 			clickItem(1, scroll);
 		}
-		anya = getUnit(1, "anya");
-		Town.move("anya");
+		anya = getUnit(1, NPC.Anya);
+		Town.move(NPC.Anya);
 		if (!anya) {
 			for (waitAnya=0 ; waitAnya<30 ; waitAnya+=1) {
 				delay(1000);
-				anya = getUnit(1, "anya");
+				anya = getUnit(1, NPC.Anya);
 				if (anya) {
 					break;
 				}
 			}
 		}
 		if (anya) {
-			Town.move("anya");
+			Town.move(NPC.Anya);
 			anya.openMenu();
 			me.cancel();
 		}
@@ -6185,7 +6185,7 @@ var OnOff = {
 				if (CustomConfig.hasOwnProperty(n)) {
 					if (CustomConfig[n].indexOf(me.profile) > -1) {
 						if (notify) {
-							print("Ë™c2Loading custom config: Ë™c9" + n + ".js");
+							print("ÿc2Loading custom config: ÿc9" + n + ".js");
 						}
 
 						 configFilename = n + ".js";
