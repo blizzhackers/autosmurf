@@ -6,7 +6,7 @@
 
 ### Prerequisites
 
-- d2bot-with-kolbot : https://github.com/kolton/d2bot-with-kolbot
+- d2bot-with-kolbot : https://github.com/blizzhackers-d2/d2bot-with-kolbot
 - check the [downloading guide](https://github.com/blizzhackers-d2/documentation/blob/master/d2bot/Download.md#download)
 
 ### Starting
