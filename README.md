@@ -1,17 +1,19 @@
 # AutoSmurf
 
-- It's a script for leveling a whole new team, starting from nothing (level 0).
-- It should work with any class, assuming you've got at least one sorceress in the team to teleport and one barbarian for casting battle orders.
-- It is made to be used with **AutoBuild** included in d2bot-with-kolbot.
+**Special thanks** to [@Dark-f](https://github.com/Dark-f/) who made a great job with the original [@JeanMax](https://github.com/JeanMax/) - [autosmurf script](https://github.com/JeanMax/AutoSmurf), updating it and sharing the changes to public.
+
+- it's a script for leveling a whole new team, starting from nothing (level 0).
+- it should work with any class, assuming you've got at least one sorceress in the team to teleport, and one barbarian for casting battle orders and shout, in order to raise the levels of life, mana and defense, ensuring the whole team survival.
+- it is made to be used with **AutoBuild** kolbot feature.
 
 ### Prerequisites
 
-- d2bot-with-kolbot : https://github.com/blizzhackers-d2/d2bot-with-kolbot
-- check the [downloading guide](https://github.com/blizzhackers-d2/documentation/blob/master/d2bot/Download.md#download)
+- kolbot : https://github.com/blizzhackers/kolbot
+- check the [kolbot downloading guide](https://github.com/blizzhackers/documentation/blob/master/d2bot/Download.md#download)
 
 ### Starting
 
-- For the beginning, you should download the files and copy/extract them in a new and fresh d2bot-with-kolbot folder.
+- For the beginning, you should download the files and copy/extract them in a new and fresh kolbot folder.
 - Copy all downloaded files into their correct location. By example, you need to copy the **/libs/common/Config.js** to **/libs/common/** directory and overwrite the default **Config.js** file. 
 - At least you should copy:
 	- ...\d2bs\kolbot\libs\bots\AutoSmurf.js
@@ -132,8 +134,3 @@
 1. When your bot team completed Rite of Passage in Nightmare and Hell, the AutoSmurf will be transfered into MF mode, and teamMF is not a silenced script, so you should set the LocalChat active (true) in mode 1 or 2.
 
 2. Javazon and Druid Autobuilds are unfinished, Amazon and Druid will only auto-build till lvl 36, and after that you must set skills and stats manually, or you can edit amazon/druid autobuilds for your needs.
-
-
-**Special thanks** to [@dark-f](https://d2bot.discourse.group/u/hk-dark-f/) who made a great job with the original [@JeanMax](https://github.com/JeanMax/) - [autosmurf script](https://github.com/JeanMax/AutoSmurf), for updating it and sharing the changes to public.
-
-Happy Smurfing!
