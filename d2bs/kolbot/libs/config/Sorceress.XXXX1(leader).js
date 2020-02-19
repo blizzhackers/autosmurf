@@ -23,217 +23,11 @@ function LoadConfig() {
 	Config.AutoEquip = true;
 	Config.LowGold = 100000;
 
-	// User addon script. Read the description in libs/bots/UserAddon.js
-	Scripts.UserAddon = false; // !!!YOU MUST SET THIS TO FALSE IF YOU WANT TO RUN BOSS/AREA SCRIPTS!!!
-
-	// Battle orders script - Use this for 2+ characters (for example BO barb + sorc)
-	Scripts.BattleOrders = false;
-		Config.BattleOrders.Mode = 0; // 0 = give BO, 1 = get BO
-		Config.BattleOrders.Wait = false; // Idle until the player that received BO leaves.
-		Config.BattleOrders.Getters = []; // List of players to wait for before casting Battle Orders (mode 0). All players must be in the same area as the BOer.
-
-	// Team MF system
-	Config.MFLeader = false; // Set to true if you have one or more MFHelpers. Opens TP and gives commands when doing normal MF runs.
-
-	// Boss/area scripts
-
-	// *** act 1 ***
-	Scripts.Corpsefire = false;
-		Config.Corpsefire.ClearDen = false;
-	Scripts.Mausoleum = false;
-		Config.Mausoleum.KillBloodRaven = false;
-		Config.Mausoleum.ClearCrypt = false;
-	Scripts.Rakanishu = false;
-		Config.Rakanishu.KillGriswold = true;
-	Scripts.UndergroundPassage = false;
-	Scripts.Coldcrow = false;
-	Scripts.Tristram = false;
-		Config.Tristram.WalkClear = false; // Disable teleport while clearing to protect leechers
-		Config.Tristram.PortalLeech = false; // Set to true to open a portal for leechers.
-	Scripts.Pit = false;
-		Config.Pit.ClearPit1 = true;
-	Scripts.Treehead = false;
-	Scripts.Smith = false;
-	Scripts.BoneAsh = false;
-	Scripts.Countess = false;
-		Config.Countess.KillGhosts = false;
-	Scripts.Andariel = false;
-	Scripts.Cows = false;
-
-	// *** act 2 ***
-	Scripts.Radament = false;
-	Scripts.Coldworm = false;
-		Config.Coldworm.KillBeetleburst = false;
-		Config.Coldworm.ClearMaggotLair = false; // Clear all 3 levels
-	Scripts.AncientTunnels = false;
-		Config.AncientTunnels.OpenChest = false; // Open special chest in Lost City
-		Config.AncientTunnels.KillDarkElder = false;
-	Scripts.Summoner = false;
-		Config.Summoner.FireEye = false;
-	Scripts.Tombs = false;
-	Scripts.Duriel = false;
-
-	// *** act 3 ***
-	Scripts.Stormtree = false;
-	Scripts.KurastTemples = false;
-	Scripts.Icehawk = false;
-	Scripts.Endugu = false;
-	Scripts.Travincal = false;
-		Config.Travincal.PortalLeech = false; // Set to true to open a portal for leechers.
-	Scripts.Mephisto = false;
-		Config.Mephisto.MoatTrick = false;
-		Config.Mephisto.KillCouncil = false;
-		Config.Mephisto.TakeRedPortal = false;
-
-	// *** act 5 ***
-	Scripts.Pindleskin = false;
-		Config.Pindleskin.UseWaypoint = false;
-		Config.Pindleskin.KillNihlathak = false;
-		Config.Pindleskin.ViperQuit = false; // End script if Tomb Vipers are found.
-	Scripts.Nihlathak = false;
-		Config.Nihlathak.ViperQuit = false; // End script if Tomb Vipers are found.
-	Scripts.Eldritch = false;
-		Config.Eldritch.OpenChest = false;
-		Config.Eldritch.KillShenk = true;
-		Config.Eldritch.KillDacFarren = false;
-	Scripts.Eyeback = false;
-	Scripts.SharpTooth = false;
-	Scripts.ThreshSocket = false;
-	Scripts.Abaddon = false;
-	Scripts.Frozenstein = false;
-		Config.Frozenstein.ClearFrozenRiver = false;
-	Scripts.Bonesaw = false;
-		Config.Bonesaw.ClearDrifterCavern = false;
-	Scripts.Snapchip = false;
-		Config.Snapchip.ClearIcyCellar = false;
-	Scripts.Worldstone = false;
-
-	// *** act 4 ***
-	Scripts.OuterSteppes = false;
-	Scripts.Izual = false;
-	Scripts.Hephasto = false;
-	Scripts.Vizier = false; // Intended for classic sorc, kills Vizier only.
-	Scripts.FastDiablo = false;
-	Scripts.Diablo = false;
-		Config.Diablo.Entrance = false; // Start from entrance
-		Config.Diablo.SealWarning = "Leave the seals alone!";
-		Config.Diablo.EntranceTP = "Entrance TP up";
-		Config.Diablo.StarTP = "Star TP up";
-		Config.Diablo.DiabloMsg = "Diablo";
-	Scripts.SealLeader = false; // Clear a safe spot around seals and invite leechers in. Leechers should run SealLeecher script. Don't run with Diablo or FastDiablo.
-
-	Scripts.Baal = false;
-		Config.Baal.HotTPMessage = "Hot TP!";
-		Config.Baal.SafeTPMessage = "Safe TP!";
-		Config.Baal.BaalMessage = "Baal!";
-		Config.Baal.SoulQuit = false; // End script if Souls (Burning Souls) are found.
-		Config.Baal.DollQuit = false; // End script if Dolls (Undead Soul Killers) are found.
-		Config.Baal.KillBaal = false; // Kill Baal. Leaves game after wave 5 if false.
-
-	/* ### leeching section ###
-	* Unless stated otherwise, leader's character name isn't needed on order to run.
-	* Don't use more scripts of the same type! (Run AutoBaal OR BaalHelper, not both)
-	*/
-
+	// Leeching section
 	Config.Leader = ""; // Leader's ingame character name. Leave blank to try auto-detection (works in AutoBaal, Wakka, MFHelper)
 	Config.QuitList = ["As2", "As3", "As4"]; // List of character names to quit with. Example: Config.QuitList = ["MySorc", "MyDin"];
 	Config.QuitListMode = 1; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
 	Config.QuitListDelay = [3, 5]; // Quit the game with random delay in case of using Config.QuitList. Example: Config.QuitListDelay = [1, 10]; will exit with random delay between 1 and 10 seconds.
-
-	Scripts.TristramLeech = false; // Enters Tristram, attempts to stay close to the leader and will try and help kill.
-	Scripts.TravincalLeech = false; // Enters portal at back of Travincal.
-		Config.TravincalLeech.Helper = true; // If set to true the character will teleport to the stairs and help attack.
-	Scripts.MFHelper = false; // Run the same MF run as the MFLeader. Leader must have Config.MFLeader = true
-	Scripts.Wakka = false; // Walking chaos leecher with auto leader assignment, stays at safe distance from the leader
-	Scripts.SealLeecher = false; // Enter safe portals to Chaos. Leader should run SealLeader.
-	Scripts.DiabloHelper = false; // Chaos helper, kills monsters and doesn't open seals on its own.
-		Config.DiabloHelper.Wait = 120; // Seconds to wait for a runner to be in Chaos. If Config.Leader is set, it will wait only for the leader.
-		Config.DiabloHelper.Entrance = false; // Start from entrance. Set to false to start from star.
-		Config.DiabloHelper.SkipTP = false; // Don't wait for town portal and directly head to chaos. It will clear monsters around chaos entrance and wait for the runner.
-		Config.DiabloHelper.SkipIfBaal = false; // End script if there are party members in a Baal run.
-	Scripts.AutoBaal = false; // Baal leecher with auto leader assignment
-		Config.AutoBaal.FindShrine = false; // false = disabled, 1 = search after hot tp message, 2 = search as soon as leader is found
-		Config.AutoBaal.LeechSpot = [15115, 5050]; // X, Y coords of Throne Room leech spot
-		Config.AutoBaal.LongRangeSupport = false; // Cast long distance skills from a safe spot
-	Scripts.BaalHelper = false;
-		Config.BaalHelper.Wait = 120; // Seconds to wait for a runner to be in Throne
-		Config.BaalHelper.KillNihlathak = false; // Kill Nihlathak before going to Throne
-		Config.BaalHelper.FastChaos = false; // Kill Diablo before going to Throne
-		Config.BaalHelper.DollQuit = false;  // End script if Dolls (Undead Soul Killers) are found.
-		Config.BaalHelper.KillBaal = true; // Kill Baal. If set to false, you must configure Config.QuitList or the bot will wait indefinitely.
-		Config.BaalHelper.SkipTP = false; // Don't wait for a TP, go to WSK3 and wait for someone to go to throne. Anti PK measure.
-	Scripts.Follower = false; // Script that follows a manually played leader around like a merc. For a list of commands, see Follower.js
-
-	// *** special scripts ***
-	Scripts.WPGetter = false; // Get missing waypoints
-	Scripts.GetKeys = false;  // Hunt for T/H/D keys
-	Scripts.OrgTorch = false;
-		Config.OrgTorch.MakeTorch = true; // Convert organ sets to torches
-		Config.OrgTorch.WaitForKeys = true; // Enable Torch System to get keys from other profiles. See libs/TorchSystem.js for more info
-		Config.OrgTorch.WaitTimeout = 15; // Time in minutes to wait for keys before moving on
-		Config.OrgTorch.UseSalvation = true; // Use Salvation aura on Mephisto (if possible)
-		Config.OrgTorch.GetFade = false; // Get fade by standing in a fire. You MUST have Last Wish or Treachery on your character being worn.
-	Scripts.Rusher = false; // Rush bot. For a list of commands, see Rusher.js
-		Config.Rusher.WaitPlayerCount = 0; // Wait until game has a certain number of players (0 - don't wait, 8 - wait for full game).
-		Config.Rusher.Radament = false; // Do Radament quest.
-		Config.Rusher.LamEsen = false; // Do Lam Esen quest.
-		Config.Rusher.Izual = false; // Do Izual quest.
-		Config.Rusher.Shenk = false; // Do Shenk quest.
-		Config.Rusher.Anya = false; // Do Anya quest.
-		Config.Rusher.LastRun = ""; // End rush after this run. List of runs: http://pastebin.com/Uez3nZ6g
-	Scripts.Rushee = false; // Automatic rushee, works with Rusher. Set Rusher's character name as Config.Leader
-		Config.Rushee.Quester = false; // Enter portals and get quest items.
-		Config.Rushee.Bumper = false; // Do Ancients and Baal. Minimum levels: 20 - norm, 40 - nightmare
-	Scripts.CrushTele = false; // classic rush teleporter. go to area of interest and press "-" numpad key
-	Scripts.Questing = false; // solves missing quests (skill/stat+shenk)
-	Scripts.Gamble = false; // Gambling system, other characters will mule gold into your game so you can gamble infinitely. See Gambling.js
-	Scripts.Crafting = false; // Crafting system, other characters will mule crafting ingredients. See CraftingSystem.js
-	Scripts.GhostBusters = false; // Kill ghosts in most areas that contain them
-	Scripts.Enchant = false;
-		Config.Enchant.Triggers = ["chant", "cows", "wps"]; // Chat commands for enchant, cow level and waypoint giving
-		Config.Enchant.GetLeg = false; // Get Wirt's Leg from Tristram. If set to false, it will check for the leg in town.
-		Config.Enchant.AutoChant = false; // Automatically enchant nearby players and their minions
-		Config.Enchant.GameLength = 20; // Game length in minutes
-	Scripts.IPHunter = false;
-		Config.IPHunter.IPList = []; // List of IPs to look for. example: [165, 201, 64]
-		Config.IPHunter.GameLength = 3; // Number of minutes to stay in game if ip wasn't found
-	Scripts.KillDclone = false; // Kill Diablo Clone by using Arcane Sanctuary waypoint. Diablo needs to walk the Earth in the game.
-	Scripts.ShopBot = false; // Shopbot script. Automatically uses shopbot.nip and ignores other pickits.
-		// Supported NPCs: Akara, Charsi, Gheed, Elzix, Fara, Drognan, Ormus, Asheara, Hratli, Jamella, Halbu, Anya. Multiple NPCs are also supported, example: [NPC.Elzix, NPC.Fara]
-		// Use common sense when combining NPCs. Shopping in different acts will probably lead to bugs.
-		Config.ShopBot.ShopNPC = NPC.Anya;
-		// Put item classid numbers or names to scan (remember to put quotes around names). Leave blank to scan ALL items. See libs/config/templates/ShopBot.txt
-		Config.ShopBot.ScanIDs = [187, 188, 194, 195, 326, 327, 338, 373, 397, 443, 449];
-		Config.ShopBot.CycleDelay = 0; // Delay between shopping cycles in milliseconds, might help with crashes.
-		Config.ShopBot.QuitOnMatch = false; // Leave game as soon as an item is shopped.
-	Scripts.ChestMania = false; // Open chests in configured areas. See sdk/areas.txt
-		Config.ChestMania.Act1 = [13, 14, 15, 16, 18, 19]; // List of act 1 areas to open chests in
-		Config.ChestMania.Act2 = [55, 59, 65, 66, 67, 68, 69, 70, 71, 72]; // List of act 2 areas to open chests in
-		Config.ChestMania.Act3 = [79, 80, 81, 92, 93, 84, 85, 90]; // List of act 3 areas to open chests in
-		Config.ChestMania.Act4 = []; // List of act 4 areas to open chests in
-		Config.ChestMania.Act5 = [115, 116, 119, 125, 126, 127]; // List of act 5 areas to open chests in
-	Scripts.ClearAnyArea = false; // Clear any area. Uses Config.ClearType to determine which type of monsters to kill.
-		Config.ClearAnyArea.AreaList = []; // List of area ids to clear. See sdk/areas.txt
-
-	// *** Guest scripts ***
-
-	// Baal Assistant by YourGreatestMember
-	Scripts.BaalAssistant = false; // Used to leech or help in baal runs.
-		Config.BaalAssistant.Wait = 120; // Seconds to wait for a runner to be in the throne / portal wait / safe TP wait / hot TP wait...
-		Config.BaalAssistant.KillNihlathak = false; // Kill Nihlathak before going to Throne
-		Config.BaalAssistant.FastChaos = false; // Kill Diablo before going to Throne
-		Config.BaalAssistant.Helper = true; // Set to true to help attack, set false to to leech.
-		Config.BaalAssistant.GetShrine = false; // Set to true to get a experience shrine at the start of the run.
-		Config.BaalAssistant.GetShrineWaitForHotTP = false; // Set to true to get a experience shrine after leader shouts the hot tp message as defined in Config.BaalAssistant.HotTPMessage
-		Config.BaalAssistant.SkipTP = false; // Set to true to enable the helper to skip the TP and teleport down to the throne room.
-		Config.BaalAssistant.WaitForSafeTP = false; // Set to true to wait for a safe TP message (defined in SafeTPMessage)
-		Config.BaalAssistant.DollQuit = false; // Quit on dolls. (Hardcore players?)
-		Config.BaalAssistant.SoulQuit = false; // Quit on Souls. (Hardcore players?)
-		Config.BaalAssistant.KillBaal = true; // Set to true to kill baal, if you set to false you MUST configure Config.QuitList or Config.BaalAssistant.NextGameMessage or the bot will wait indefinitely. 
-		Config.BaalAssistant.HotTPMessage = ["Hot"]; // Configure safe TP messages.
-		Config.BaalAssistant.SafeTPMessage = ["Safe", "Clear"]; // Configure safe TP messages.
-		Config.BaalAssistant.BaalMessage = ["Baal"]; // Configure baal messages, this is a precautionary measure.
-		Config.BaalAssistant.NextGameMessage = ["Next Game", "Next", "New Game"];	// Next Game message, this is a precautionary quit command, Reccomended setting up: Config.QuitList
 
 	// Town settings
 	Config.HealHP = 90; // Go to a healer if under designated percent of life.
@@ -244,7 +38,7 @@ function LoadConfig() {
 
 	// Potion settings
 	Config.UseHP = 75; // Drink a healing potion if life is under designated percent.
-	Config.UseRejuvHP = 50;  // Drink a rejuvenation potion if life is under designated percent.
+	Config.UseRejuvHP = 50; // Drink a rejuvenation potion if life is under designated percent.
 	Config.UseMP = 20; // Drink a mana potion if mana is under designated percent.
 	Config.UseRejuvMP = 1; // Drink a rejuvenation potion if mana is under designated percent.
 	Config.UseMercHP = 0; // Give a healing potion to your merc if his/her life is under designated percent.
@@ -523,6 +317,7 @@ function LoadConfig() {
 	Config.LocalChat.Toggle = false; // optional, set to KEY value to toggle through modes 0, 1, 2
 	Config.LocalChat.Mode = 2; // 0 = disabled, 1 = chat from 'say' (recommended), 2 = all chat (for manual play)
 	// If Config.Leader is set, the bot will only accept invites from leader. If Config.PublicMode is not 0, Baal and Diablo script will open Town Portals.
+	// If set on true, it simply parties.
 	Config.PublicMode = 1; // 1 = invite and accept, 2 = accept only, 3 = invite only, 0 = disable
 	// Party message settings. Each setting represents an array of messages that will be randomly chosen.
 	// $name, $level, $class and $killer are replaced by the player's name, level, class and killer
@@ -544,6 +339,7 @@ function LoadConfig() {
 	Config.TownCheck = true; // Go to town if out of potions
 	Config.LogExperience = true; // Print experience statistics in the manager.
 	Config.PingQuit = [{Ping: 0, Duration: 0}]; // Quit if ping is over the given value for over the given time period in seconds.
+	Config.Silence = false; // Make the bot not say a word. Do not use in combination with LocalChat
 
 	// Shrine Scanner - scan for shrines while moving.
 	// Put the shrine types in order of priority (from highest to lowest). For a list of types, see sdk/shrines.txt
@@ -555,20 +351,20 @@ function LoadConfig() {
 	// Primary Slot - Bot will try to determine primary slot if not used (non-cta slot that's not empty)
 	Config.PrimarySlot = -1; // Set to use specific weapon slot as primary weapon slot: -1 = disabled, 0 = slot I, 1 = slot II
 
-	// Speedup config. Full packet casting is not recommended for melee skills.
-	Config.FCR = 255; // 0 - disable, 1 to 255 - set value of Faster Cast Rate.
-	Config.FHR = 255; // 0 - disable, 1 to 255 - set value of Faster Hit Recovery.
-	Config.FBR = 255; // 0 - disable, 1 to 255 - set value of Faster Block Recovery.
-	Config.IAS = 255; // 0 - disable, 1 to 255 - set value of Increased Attack Speed.
+	// Fastmod config
+	Config.FCR = 255; // 0 - disable, 1 to 255 - set value of faster cast rate
+	Config.FHR = 255; // 0 - disable, 1 to 255 - set value of faster hit recovery
+	Config.FBR = 255; // 0 - disable, 1 to 255 - set value of faster block recovery
+	Config.IAS = 255; // 0 - disable, 1 to 255 - set value of increased attack speed
 	Config.PacketCasting = 2; // 0 = disable, 1 = packet teleport, 2 = full packet casting.
 	Config.WaypointMenu = true;
 
 	// Anti-hostile config
-	Config.AntiHostile = false; // Enable anti-hostile.
-	Config.HostileAction = 0; // 0 - quit immediately, 1 - quit when hostile player is sighted, 2 - attack hostile.
-	Config.TownOnHostile = false; // Go to town instead of quitting when HostileAction is 0 or 1.
+	Config.AntiHostile = false; // Enable anti-hostile
+	Config.HostileAction = 0; // 0 - quit immediately, 1 - quit when hostile player is sighted, 2 - attack hostile
+	Config.TownOnHostile = false; // Go to town instead of quitting when HostileAction is 0 or 1
 	Config.RandomPrecast = false; // Anti-PK measure, only supported in Baal and BaalHelper and BaalAssisstant at the moment.
-	Config.ViperCheck = false; // Quit if revived Tomb Vipers are sighted.
+	Config.ViperCheck = false; // Quit if revived Tomb Vipers are sighted
 
 	// DClone config
 	Config.StopOnDClone = false; // Go to town and idle as soon as Diablo walks the Earth
@@ -590,7 +386,7 @@ function LoadConfig() {
 
 	/* Attack config
 	 * To disable an attack, set it to -1
-	 * Skills MUST be POSITIVE numbers. For reference see http://pastebin.com/baShRwWM
+	 * Skills MUST be POSITIVE numbers. For reference see ...\kolbot\sdk\skills.txt
 	 */
 	Config.AttackSkill[0] = -1; // Preattack skill.
 	Config.AttackSkill[1] = 0; // Primary skill to bosses.
@@ -613,6 +409,7 @@ function LoadConfig() {
 		//"Monster Name": [-1, -1]
 	};
 
+	Config.NoTele = false; // Restrict char from teleporting. Useful for low level/low mana chars
 	Config.Dodge = true; // Move away from monsters that get too close. Don't use with short-ranged attacks like Poison Dagger.
 	Config.DodgeRange = 10; // Distance to keep from monsters.
 	Config.DodgeHP = 100; // Dodge only if HP percent is less than or equal to Config.DodgeHP. 100 = always dodge.
