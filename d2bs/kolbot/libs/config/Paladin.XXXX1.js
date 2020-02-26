@@ -298,12 +298,12 @@ function LoadConfig() {
 	Config.Runewords.push([Runeword.Spirit, "protectorshield"]);
 	Config.Runewords.push([Runeword.Spirit, "gildedshield"]);
 	Config.Runewords.push([Runeword.Spirit, "royalshield"]);
-	Config.Runewords.push([Runeword.Spirit, "Monarch"]);  
-	Config.Runewords.push([Runeword.Spirit, "SacredTarge"]);  
-	Config.Runewords.push([Runeword.Spirit, "sacredrondache"]); 
-	Config.Runewords.push([Runeword.Spirit, "kurastshield"]); 
-	Config.Runewords.push([Runeword.Spirit, "zakarumshield"]); 
-	Config.Runewords.push([Runeword.Spirit, "vortexshield"]); 
+	Config.Runewords.push([Runeword.Spirit, "Monarch"]);
+	Config.Runewords.push([Runeword.Spirit, "SacredTarge"]);
+	Config.Runewords.push([Runeword.Spirit, "sacredrondache"]);
+	Config.Runewords.push([Runeword.Spirit, "kurastshield"]);
+	Config.Runewords.push([Runeword.Spirit, "zakarumshield"]);
+	Config.Runewords.push([Runeword.Spirit, "vortexshield"]);
 
 	Config.KeepRunewords.push("[type] == shield || [type] == auricshields # [fcr] <= 35");
 
@@ -331,10 +331,10 @@ function LoadConfig() {
 	Config.LastMessage = ""; // Message or array of messages to say at the end of the run. Use $nextgame to say next game - "Next game: $nextgame" (works with lead entry point)
 	Config.MinGameTime = 180; // Min game time in seconds. Bot will TP to town and stay in game if the run is completed before.
 	Config.MaxGameTime = 2400; // Maximum game time in seconds. Quit game when limit is reached.
-	Config.TeleSwitch = false; // Switch to slot II when teleporting more than 1 node.
+	Config.TeleSwitch = false; // Switch to secondary (non-primary) slot when teleporting more than 5 nodes.
 	Config.OpenChests = true; // Open chests. Controls key buying.
 	Config.MiniShopBot = false; // Scan items in NPC shops.
-	Config.PacketShopping = true; // Use packets to shop. Imporves shopping speed.
+	Config.PacketShopping = true; // Use packets to shop. Improves shopping speed.
 	Config.TownCheck = true; // Go to town if out of potions
 	Config.LogExperience = false; // Print experience statistics in the manager.
 	Config.PingQuit = [{Ping: 0, Duration: 0}]; // Quit if ping is over the given value for over the given time period in seconds.
@@ -345,17 +345,17 @@ function LoadConfig() {
 	Config.ScanShrines = [15,12,6,3,2];
 
 	// MF Switch
-	Config.MFSwitchPercent = 0; // Boss life % to switch to non-primiary weapon slot. Set to 0 to disable.
+	Config.MFSwitchPercent = 0; // Boss life % to switch to non-primary weapon slot. Set to 0 to disable.
 
 	// Primary Slot - Bot will try to determine primary slot if not used (non-cta slot that's not empty)
 	Config.PrimarySlot = -1; // Set to use specific weapon slot as primary weapon slot: -1 = disabled, 0 = slot I, 1 = slot II
 
 	// Fastmod config
-	Config.FCR = 255; // 0 - disable, 1 to 255 - set value of faster cast rate 
-	Config.FHR = 255; // 0 - disable, 1 to 255 - set value of faster hit recovery 
-	Config.FBR = 255; // 0 - disable, 1 to 255 - set value of faster block recovery 
-	Config.IAS = 255; // 0 - disable, 1 to 255 - set value of increased attack speed 
-	Config.PacketCasting = 2; // 0 = disable, 1 = packet teleport, 2 = full packet casting.
+	Config.FCR = 255; // 0 - disable, 1 to 255 - set value of faster cast rate
+	Config.FHR = 255; // 0 - disable, 1 to 255 - set value of faster hit recovery
+	Config.FBR = 255; // 0 - disable, 1 to 255 - set value of faster block recovery
+	Config.IAS = 255; // 0 - disable, 1 to 255 - set value of increased attack speed
+	Config.PacketCasting = 2; // 0 = disable, 1 = packet teleport, 2 = full packet casting
 	Config.WaypointMenu = true;
 
 	// Anti-hostile config

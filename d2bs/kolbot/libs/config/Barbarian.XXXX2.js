@@ -267,7 +267,7 @@ function LoadConfig() {
 	Config.KeepRunewords.push("[type] == shield # [FireResist] >= 40 && [LightResist] >= 40 ");
 
 	//Lore
-	//Config.Runewords.push([Runeword.Lore, "cap"]); 
+	//Config.Runewords.push([Runeword.Lore, "cap"]);
 	//Config.Runewords.push([Runeword.Lore, "skullcap"]);
 	//Config.Runewords.push([Runeword.Lore, "crown"]);
 	//Config.Runewords.push([Runeword.Lore, "mask"]);
@@ -341,19 +341,19 @@ function LoadConfig() {
 
 	// Shrine Scanner - scan for shrines while moving.
 	// Put the shrine types in order of priority (from highest to lowest). For a list of types, see sdk/shrines.txt
-	Config.ScanShrines = [15,12,6,3,2];
+	Config.ScanShrines = [15, 12, 6, 3, 2];
 
 	// MF Switch
-	Config.MFSwitchPercent = 0; // Boss life % to switch to non-primiary weapon slot. Set to 0 to disable.
+	Config.MFSwitchPercent = 0; // Boss life % to switch to non-primary weapon slot. Set to 0 to disable.
 
 	// Primary Slot - Bot will try to determine primary slot if not used (non-cta slot that's not empty)
 	Config.PrimarySlot = -1; // Set to use specific weapon slot as primary weapon slot: -1 = disabled, 0 = slot I, 1 = slot II
 
 	// Fastmod config
-	Config.FCR = 255; // 0 - disable, 1 to 255 - set value of faster cast rate 
-	Config.FHR = 255; // 0 - disable, 1 to 255 - set value of faster hit recovery 
-	Config.FBR = 255; // 0 - disable, 1 to 255 - set value of faster block recovery 
-	Config.IAS = 255; // 0 - disable, 1 to 255 - set value of increased attack speed 
+	Config.FCR = 255; // 0 - disable, 1 to 255 - set value of faster cast rate
+	Config.FHR = 255; // 0 - disable, 1 to 255 - set value of faster hit recovery
+	Config.FBR = 255; // 0 - disable, 1 to 255 - set value of faster block recovery
+	Config.IAS = 255; // 0 - disable, 1 to 255 - set value of increased attack speed
 	Config.PacketCasting = 2; // 0 = disable, 1 = packet teleport, 2 = full packet casting.
 	Config.WaypointMenu = true;
 
@@ -396,11 +396,11 @@ function LoadConfig() {
 	Config.LowManaSkill[0] = -1; // Low mana skill.
 
 	/* Advanced Attack config. Allows custom skills to be used on custom monsters.
-	 *	Format: "Monster Name": [attack skill id, aura skill id]
+	 *	Format: "Monster Name": [attack skill id]
 	 *	Multiple entries are separated by commas
 	 */
 	Config.CustomAttack = {
-		//"Monster Name": [-1, -1]
+		//"Monster Name": [-1]
 	};
 
 	Config.BossPriority = true; // Set to true to attack Unique/SuperUnique monsters first when clearing

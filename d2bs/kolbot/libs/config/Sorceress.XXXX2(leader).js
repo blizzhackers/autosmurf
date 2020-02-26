@@ -159,8 +159,8 @@ function LoadConfig() {
 	Config.GambleItems.push(418); // Circlet
 	Config.GambleItems.push(419); // Coronet
 
-	/* Cubing config. All recipe names are available in Templates/Cubing.txt
-	 * The format is Config.Recipes.push([recipe_name, item_id, etherealness]). Etherealness is optional and only applies to some recipes.
+	/* Cubing config. All recipe names are available in Templates/Cubing.txt. For item names/classids check NTItemAlias.dbl
+	 * The format is Config.Recipes.push([recipe_name, item_name_or_classid, etherealness]). Etherealness is optional and only applies to some recipes.
 	 */
 	Config.Cubing = true; // Set to true to enable cubing.
 
@@ -178,7 +178,6 @@ function LoadConfig() {
 	//Config.Recipes.push([Recipe.Gem, 579]); // flawless ruby
 	//Config.Recipes.push([Recipe.Gem, 583]); // diamond
 	//Config.Recipes.push([Recipe.Gem, 584]); // flawless diamond
-
 
 	//Config.Recipes.push([Recipe.Token]); // Make Token of Absolution
 
@@ -230,10 +229,10 @@ function LoadConfig() {
 	//Config.Runewords.push([Runeword.Insight, "battlescythe"]);
 	//Config.Runewords.push([Runeword.Insight, "partizan"]);
 	//Config.Runewords.push([Runeword.Insight, "becdecorbin"]);
-	Config.Runewords.push([Runeword.Insight, "thresher"]); 
-	Config.Runewords.push([Runeword.Insight, "crypticaxe"]); 
-	Config.Runewords.push([Runeword.Insight, "greatpoleaxe"]); 
-	Config.Runewords.push([Runeword.Insight, "colossusvoulge"]); 
+	Config.Runewords.push([Runeword.Insight, "thresher"]);
+	Config.Runewords.push([Runeword.Insight, "crypticaxe"]);
+	Config.Runewords.push([Runeword.Insight, "greatpoleaxe"]);
+	Config.Runewords.push([Runeword.Insight, "colossusvoulge"]);
 
 	Config.KeepRunewords.push("[type] == polearm # [meditationaura] <= 17");
 
@@ -242,16 +241,16 @@ function LoadConfig() {
 	//Config.Runewords.push([Runeword.Smoke, "ghostarmor"]);
 	//Config.Runewords.push([Runeword.Smoke, "serpentskinarmor"]);
 	//Config.Runewords.push([Runeword.Smoke, "demonhidearmor"]);
-	Config.Runewords.push([Runeword.Smoke, "cuirass"]); 
-	Config.Runewords.push([Runeword.Smoke, "mageplate"]); 
-	Config.Runewords.push([Runeword.Smoke, "duskShroud"]); 
-	Config.Runewords.push([Runeword.Smoke, "wyrmhide"]); 
-	Config.Runewords.push([Runeword.Smoke, "scarabHusk"]); 
-	Config.Runewords.push([Runeword.Smoke, "wireFleece"]); 
-	Config.Runewords.push([Runeword.Smoke, "greatHauberk"]); 
+	Config.Runewords.push([Runeword.Smoke, "cuirass"]);
+	Config.Runewords.push([Runeword.Smoke, "mageplate"]);
+	Config.Runewords.push([Runeword.Smoke, "duskShroud"]);
+	Config.Runewords.push([Runeword.Smoke, "wyrmhide"]);
+	Config.Runewords.push([Runeword.Smoke, "scarabHusk"]);
+	Config.Runewords.push([Runeword.Smoke, "wireFleece"]);
+	Config.Runewords.push([Runeword.Smoke, "greatHauberk"]);
 	Config.Runewords.push([Runeword.Smoke, "boneweave"]);
-	Config.Runewords.push([Runeword.Smoke, "balrogSkin"]); 
-	Config.Runewords.push([Runeword.Smoke, "archonPlate"]); 
+	Config.Runewords.push([Runeword.Smoke, "balrogSkin"]);
+	Config.Runewords.push([Runeword.Smoke, "archonPlate"]);
 
 	Config.KeepRunewords.push("[type] == armor # [FireResist] == 50 && [LightResist] == 50 "); 
 
@@ -329,7 +328,7 @@ function LoadConfig() {
 	// General config
 	Config.AutoMap = true; // Set to true to open automap at the beginning of the game.
 	Config.LastMessage = ""; // Message or array of messages to say at the end of the run. Use $nextgame to say next game - "Next game: $nextgame" (works with lead entry point)
-	Config.MinGameTime = 120; // Min game time in seconds. Bot will TP to town and stay in game if the run is completed before.
+	Config.MinGameTime = 180; // Min game time in seconds. Bot will TP to town and stay in game if the run is completed before.
 	Config.MaxGameTime = 2400; // Maximum game time in seconds. Quit game when limit is reached.
 	Config.TeleSwitch = false; // Switch to secondary (non-primary) slot when teleporting more than 5 nodes.
 	Config.OpenChests = true; // Open chests. Controls key buying.
@@ -345,7 +344,7 @@ function LoadConfig() {
 	Config.ScanShrines = [15, 12, 6, 3, 2];
 
 	// MF Switch
-	Config.MFSwitchPercent = 0; // Boss life % to switch to secondary weapon slot. Set to 0 to disable.
+	Config.MFSwitchPercent = 0; // Boss life % to switch to non-primary weapon slot. Set to 0 to disable.
 
 	// Primary Slot - Bot will try to determine primary slot if not used (non-cta slot that's not empty)
 	Config.PrimarySlot = -1; // Set to use specific weapon slot as primary weapon slot: -1 = disabled, 0 = slot I, 1 = slot II
