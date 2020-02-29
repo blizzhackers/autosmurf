@@ -3,13 +3,13 @@ var StarterConfig = {
 	FirstJoinMessage: "", // Message to say when first joining a channel, usually ".login"
 	ChatActionsDelay: rand(2e3, 7e3), // Milliseconds to wait in lobby before entering a channel
 
-	JoinRetryDelay: rand(5e3, 15e3), // Time in miliseconds to wait before next join attempt
-	SwitchKeyDelay: rand(5, 15), // Seconds to wait before switching a used/banned key or after realm down
+	JoinRetryDelay: rand(10e3, 15e3), // Time in milliseconds to wait before next join attempt
+	SwitchKeyDelay: rand(10e3, 15e3), // Milliseconds to wait before switching a used/banned key or after realm down
 
 	CrashDelay: rand(120e3, 150e3), // Milliseconds to wait after a d2 window crash
-	RealmDownDelay: rand(3, 5), // Minutes to wait after getting Realm Down message
-	UnableToConnectDelay: rand(2, 7), // Minutes to wait after Unable To Connect message
-	CDKeyInUseDelay: rand(2, 7), // Minutes to wait before connecting again if CD-Key is in use. SwitchKeys overrides this!
+	RealmDownDelay: rand(5*6e4, 10*6e4), // Minutes to wait after getting Realm Down message
+	UnableToConnectDelay: rand(2*6e4, 7*6e4), // Minutes to wait after Unable To Connect message
+	CDKeyInUseDelay: rand(2*6e4, 7*6e4), // Minutes to wait before connecting again if CD-Key is in use. SwitchKeys overrides this!
 	ConnectingTimeout: rand(25e3, 30e3), // Milliseconds to wait before cancelling the 'Connecting...' screen
 	PleaseWaitTimeout: rand(30e3, 40e3), // Milliseconds to wait before cancelling the 'Please Wait...' screen
 	WaitInLineTimeout: rand(60e3, 120e3), // Milliseconds to wait before cancelling the 'Waiting in Line...' screen
@@ -40,14 +40,14 @@ var AdvancedConfig = {
 		"Profile Name": {JoinDelay: number_of_seconds}
 
 	* Example * (don't edit this - it's just an example):
-		"MyProfile1": {JoinDelay: 3},
-		"MyProfile2": {JoinDelay: 6}
+		"MyProfile1": {JoinDelay: rand(3e3, 5e3)},
+		"MyProfile2": {JoinDelay: rand(6e3, 9e3)}
 	*/
 
 	// Put your lines under this one. Multiple entries are separated by commas. No comma after the last one.
-		"As2": {JoinDelay: rand(3, 5)},
-		"As3": {JoinDelay: rand(6, 8)},
-		"As4": {JoinDelay: rand(8, 10)}
+		"As2": {JoinDelay: rand(3e3, 5e3)},
+		"As3": {JoinDelay: rand(6e3, 8e3)},
+		"As4": {JoinDelay: rand(8e3, 10e3)}
 };
 
 
@@ -66,6 +66,7 @@ var i, j, gameInfo, joinInfo, gameStart, ingame, handle,
 	firstLogin, chatActionsDone, lastGameTick, connectFail,
 	gameCount = DataFile.getStats().runs + 1,
 	ftj = 0,
+	wait = 0,
 	loginRetry = 0,
 	lastGameStatus = "ready",
 	leader = "",
@@ -322,6 +323,13 @@ MainSwitch:
 		break;
 	case 2: // Waiting In Line
 		D2Bot.updateStatus("Waiting...");
+		wait++;
+
+		if (wait > 2) {
+			D2Bot.printToConsole(me.profile + " - Waiting in line");
+			D2Bot.stop(me.profile, true);
+		}
+
 		locationTimeout(StarterConfig.WaitInLineTimeout, location);
 		ControlAction.click(6, 433, 433, 96, 32);
 
@@ -432,7 +440,7 @@ JoinLoop2:
 					print("joining game " + joinInfo.gameName);
 
 					if (typeof AdvancedConfig[me.profile] === "object" && typeof AdvancedConfig[me.profile].JoinDelay === "number") {
-						ControlAction.timeoutDelay("Custom Join Delay", AdvancedConfig[me.profile].JoinDelay * 1e3);
+						ControlAction.timeoutDelay("Custom Join Delay", AdvancedConfig[me.profile].JoinDelay);
 					}
 
 					me.blockMouse = true;
@@ -542,7 +550,7 @@ JoinLoop2:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -555,7 +563,7 @@ JoinLoop2:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -568,7 +576,7 @@ JoinLoop2:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -586,7 +594,7 @@ JoinLoop2:
 				D2Bot.printToConsole("Login Error - " + string);
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -607,7 +615,7 @@ JoinLoop2:
 		D2Bot.updateStatus("Unable To Connect");
 
 		if (connectFail) {
-			ControlAction.timeoutDelay("Unable to Connect", StarterConfig.UnableToConnectDelay * 6e4);
+			ControlAction.timeoutDelay("Unable to Connect", StarterConfig.UnableToConnectDelay);
 
 			connectFail = false;
 		} else {
@@ -628,12 +636,12 @@ JoinLoop2:
 		}
 
 		updateCount();
-		ControlAction.timeoutDelay("Realm Down", StarterConfig.RealmDownDelay * 6e4);
+		ControlAction.timeoutDelay("Realm Down", StarterConfig.RealmDownDelay);
 		D2Bot.CDKeyRD();
 
 		if (gameInfo.switchKeys && !gameInfo.rdBlocker) {
 			D2Bot.printToConsole("Realm Down - Changing CD-Key");
-			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 			D2Bot.restart(true);
 		} else {
 			D2Bot.printToConsole("Realm Down - Restart");
@@ -663,10 +671,10 @@ JoinLoop2:
 		D2Bot.CDKeyInUse();
 
 		if (gameInfo.switchKeys) {
-			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+			ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 			D2Bot.restart(true);
 		} else {
-			ControlAction.timeoutDelay("CD-Key in use", StarterConfig.CDKeyInUseDelay * 6e4);
+			ControlAction.timeoutDelay("CD-Key in use", StarterConfig.CDKeyInUseDelay);
 			ControlAction.click(6, 335, 450, 128, 35);
 		}
 
@@ -699,22 +707,22 @@ JoinLoop2:
 			D2Bot.CDKeyInUse();
 
 			if (gameInfo.switchKeys) {
-				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 				D2Bot.restart(true);
 			} else {
 				ControlAction.click(6, 335, 450, 128, 35);
-				ControlAction.timeoutDelay("LoD key in use", StarterConfig.CDKeyInUseDelay * 6e4);
+				ControlAction.timeoutDelay("LoD key in use", StarterConfig.CDKeyInUseDelay);
 			}
 
 			break;
 		default:
 			if (gameInfo.switchKeys) {
 				D2Bot.printToConsole("Invalid CD-Key");
-				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 				D2Bot.restart(true);
 			} else {
 				ControlAction.click(6, 335, 450, 128, 35);
-				ControlAction.timeoutDelay("Invalid CD-Key", StarterConfig.CDKeyInUseDelay * 6e4);
+				ControlAction.timeoutDelay("Invalid CD-Key", StarterConfig.CDKeyInUseDelay);
 			}
 
 			break;
@@ -741,7 +749,7 @@ JoinLoop2:
 				D2Bot.CDKeyDisabled();
 
 				if (gameInfo.switchKeys) {
-					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+					ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 					D2Bot.restart(true);
 				} else {
 					D2Bot.stop();
@@ -785,7 +793,7 @@ JoinLoop2:
 			D2Bot.printToConsole(gameInfo.mpq + " is probably flagged.", 6);
 
 			if (gameInfo.switchKeys) {
-				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay * 1000);
+				ControlAction.timeoutDelay("Key switch delay", StarterConfig.SwitchKeyDelay);
 				D2Bot.restart(true);
 			}
 		} else {
