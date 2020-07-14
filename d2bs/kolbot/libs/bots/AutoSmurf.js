@@ -3429,8 +3429,8 @@ function AutoSmurf() {
 			}
 			Town.goToTown();
 		}
-		Town.move("atma");
-		atma = getUnit(1, "atma");
+		Town.move(NPC.Atma);
+		atma = getUnit(1, NPC.Atma);
 		atma.openMenu();
 		me.cancel();
 		//Pather.teleport = false;
