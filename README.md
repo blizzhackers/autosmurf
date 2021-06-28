@@ -125,7 +125,7 @@
 
 3. When your bot team completed Rite of Passage in Nightmare and Hell, the AutoSmurf was transfered into MF mode. But killing baal was restricted by charLvls which are baalLvlnm and mfLvlHell.
 
-4. You may reset the values of [lines 16-30 in AutoSmurf.js](https://github.com/blizzhackers-d2/autosmurf/blob/master/d2bs/kolbot/libs/bots/AutoSmurf.js#L16-L30). These values restrict your bot level to begin some quests, like "tombsLvl = 30" (line 30) means that your bot level must be more than 28 and your bot will begin to kill Duriel. Because the beginner bots equips mostly low quality items, if you want to reduce the number of chicken exits, the suggestion is to not change the default values. The default values will keep your bot safety, but on lower areas the leveling up speed is a bit slower.
+4. You may reset the values of [lines 11-26 in AutoSmurf.js](https://github.com/blizzhackers-d2/autosmurf/blob/master/d2bs/kolbot/libs/bots/AutoSmurf.js#L11-L26). These values restrict your bot level to begin some quests, like "tombsLvl = 26" (line 14) means that your bot level must be more than 26 and your bot will begin to kill Duriel. Because the beginner bots equips mostly low quality items, if you want to reduce the number of chicken exits, the suggestion is to not change the default values. The default values will keep your bot safety, but on lower areas the leveling up speed is a bit slower.
 
 5. You do not need to give any gold to your bot on first running of the AutoSmurf.
 
